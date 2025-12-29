@@ -6,15 +6,15 @@ import { HeroBackground } from "./hero-background"
 
 export function HeroSection() {
   return (
-    <section className="relative w-full min-h-screen flex items-center justify-center overflow-hidden">
+    <section className="relative w-full min-h-screen flex items-center justify-center overflow-hidden bg-background">
       <HeroBackground />
       
-      {/* Gradient blend overlay - seamlessly transitions to page background */}
+      {/* Gradient blend overlay */}
       <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-b from-transparent to-background pointer-events-none z-[5]" />
 
       <div className="max-w-5xl mx-auto px-6 md:px-8 relative z-10 py-20">
         <div className="text-center space-y-6 md:space-y-8">
-          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.1] tracking-tight text-balance">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.1] tracking-tight text-balance text-foreground">
             Clarity at work.<br />Before friction builds.
           </h1>
 
