@@ -4,7 +4,7 @@ import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { Button } from "./ui/button"
 import { useEffect, useState } from "react"
-import { Menu, X, Home, Sparkles, DollarSign } from "lucide-react"
+import { Menu, X, Home, Sparkles, IndianRupee } from "lucide-react"
 import Image from "next/image"
 
 export function Navigation() {
@@ -42,7 +42,7 @@ export function Navigation() {
   const navLinks = [
     { href: "/", label: "Home", icon: Home },
     { href: "/features", label: "Features", icon: Sparkles },
-    { href: "/pricing", label: "Pricing", icon: DollarSign },
+    { href: "/pricing", label: "Pricing", icon: IndianRupee },
   ]
 
   return (

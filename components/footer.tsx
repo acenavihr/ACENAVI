@@ -5,124 +5,93 @@ import { useScrollAnimation } from "@/hooks/use-scroll-animation"
 export function Footer() {
   const { scrollProgress, elementRef } = useScrollAnimation(0.1)
 
-  const footerLinks = {
-    product: [
-      { label: "Features", href: "#features" },
-      { label: "Integrations", href: "#integrations" },
-      { label: "Pricing", href: "#pricing" },
-    ],
-    company: [
-      { label: "About", href: "/about" },
-      { label: "Blog", href: "/blog" },
-      { label: "Careers", href: "/careers" },
-    ],
-    legal: [
-      { label: "Privacy", href: "/privacy" },
-      { label: "Terms", href: "/terms" },
-      { label: "Security", href: "/security" },
-    ],
-  }
-
   return (
-    <footer 
+    <footer
       ref={elementRef as React.RefObject<HTMLElement>}
-      className="bg-background border-t border-border py-16 md:py-20"
+      className="border-t border-border bg-card"
     >
-      <div 
-        className="max-w-7xl mx-auto px-6 transition-all duration-700 ease-out"
+      <div
+        className="max-w-6xl mx-auto px-6 py-16 transition-all duration-700 ease-out"
         style={{
           opacity: scrollProgress,
-          transform: `translateY(${(1 - scrollProgress) * 20}px)`
+          transform: `translateY(${(1 - scrollProgress) * 16}px)`,
         }}
       >
-        {/* Main footer content */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12 mb-12">
-          {/* Product */}
-          <div>
-            <h3 className="font-semibold text-sm mb-4 tracking-tight">Product</h3>
-            <ul className="space-y-3">
-              {footerLinks.product.map((link) => (
-                <li key={link.label}>
-                  <a 
-                    href={link.href}
-                    className="text-sm text-muted-foreground hover:text-foreground transition-colors duration-200"
-                  >
-                    {link.label}
-                  </a>
-                </li>
-              ))}
-            </ul>
+        {/* Top */}
+        <div className="flex flex-col md:flex-row justify-between gap-12 mb-12">
+          {/* Brand / Trust */}
+          <div className="max-w-sm">
+            <div className="text-sm font-semibold text-foreground mb-2">
+              Navi
+            </div>
+            <p className="text-sm text-foreground/75 leading-relaxed">
+              Context-aware HR infrastructure that adapts to how your
+              organization already works.
+            </p>
           </div>
 
-          {/* Company */}
-          <div>
-            <h3 className="font-semibold text-sm mb-4 tracking-tight">Company</h3>
-            <ul className="space-y-3">
-              {footerLinks.company.map((link) => (
-                <li key={link.label}>
-                  <a 
-                    href={link.href}
-                    className="text-sm text-muted-foreground hover:text-foreground transition-colors duration-200"
+          {/* Legal + Contact */}
+          <div className="flex gap-16">
+            {/* Legal */}
+            <div>
+              <h3 className="text-xs font-semibold uppercase tracking-wide text-foreground mb-4">
+                Legal
+              </h3>
+              <ul className="space-y-3">
+                <li>
+                  <a
+                    href="/privacy"
+                    className="text-sm text-foreground/80 hover:text-foreground transition-colors"
                   >
-                    {link.label}
+                    Privacy Policy
                   </a>
                 </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Legal */}
-          <div>
-            <h3 className="font-semibold text-sm mb-4 tracking-tight">Legal</h3>
-            <ul className="space-y-3">
-              {footerLinks.legal.map((link) => (
-                <li key={link.label}>
-                  <a 
-                    href={link.href}
-                    className="text-sm text-muted-foreground hover:text-foreground transition-colors duration-200"
+                <li>
+                  <a
+                    href="/terms"
+                    className="text-sm text-foreground/80 hover:text-foreground transition-colors"
                   >
-                    {link.label}
+                    Terms of Service
                   </a>
                 </li>
-              ))}
-            </ul>
-          </div>
+              </ul>
+            </div>
 
-          {/* Contact */}
-          <div>
-            <h3 className="font-semibold text-sm mb-4 tracking-tight">Contact</h3>
-            <a 
-              href="mailto:hello@navi.hr"
-              className="text-sm text-muted-foreground hover:text-accent transition-colors duration-200"
-            >
-              hello@navi.hr
-            </a>
+            {/* Contact */}
+            <div>
+              <h3 className="text-xs font-semibold uppercase tracking-wide text-foreground mb-4">
+                Contact
+              </h3>
+              <a
+                href="mailto:hello@navi.hr"
+                className="text-sm text-foreground/80 hover:text-accent transition-colors"
+              >
+                hello@navi.hr
+              </a>
+            </div>
           </div>
         </div>
 
         {/* Bottom bar */}
-        <div className="border-t border-border pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
-          <div className="text-sm text-muted-foreground">
+        <div className="border-t border-border pt-6 flex flex-col md:flex-row justify-between items-center gap-4">
+          <div className="text-xs text-foreground/60">
             © {new Date().getFullYear()} Navi. All rights reserved.
           </div>
-          
-          {/* Social links (optional - remove if not needed) */}
+
           <div className="flex gap-6">
-            <a 
-              href="https://twitter.com/navi" 
-              target="_blank" 
+            <a
+              href="https://instagram.com/navi"
+              target="_blank"
               rel="noopener noreferrer"
-              className="text-sm text-muted-foreground hover:text-foreground transition-colors duration-200"
-              aria-label="Twitter"
+              className="text-xs text-foreground/70 hover:text-foreground transition-colors"
             >
-              Twitter
+              Instagram
             </a>
-            <a 
-              href="https://linkedin.com/company/navi" 
-              target="_blank" 
+            <a
+              href="https://linkedin.com/company/navi"
+              target="_blank"
               rel="noopener noreferrer"
-              className="text-sm text-muted-foreground hover:text-foreground transition-colors duration-200"
-              aria-label="LinkedIn"
+              className="text-xs text-foreground/70 hover:text-foreground transition-colors"
             >
               LinkedIn
             </a>

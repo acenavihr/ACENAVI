@@ -3,7 +3,7 @@
 @layer base {
   :root {
     /* Light mode - Clean, minimal palette with blue accent */
-    --background: #ffffff;
+    --background: 249 250 254;
     --foreground: #0a0a0a;
     
     --card: #ffffff;
@@ -156,5 +156,24 @@
 
   .text-balance {
     text-wrap: balance;
+  }
+
+  * {
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE and Edge */
+  }
+  
+  *::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera */
+  }
+  
+  /* If you want to hide only on body */
+  body {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+  
+  body::-webkit-scrollbar {
+    display: none;
   }
 }
