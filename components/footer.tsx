@@ -8,7 +8,7 @@ export function Footer() {
   return (
     <footer
       ref={elementRef as React.RefObject<HTMLElement>}
-      className="border-t border-border bg-card"
+      className="border-t border-border bg-background"
     >
       <div
         className="max-w-6xl mx-auto px-6 py-16 transition-all duration-700 ease-out"
@@ -24,7 +24,7 @@ export function Footer() {
             <div className="text-sm font-semibold text-foreground mb-2">
               Navi
             </div>
-            <p className="text-sm text-foreground/95 leading-relaxed font-medium">
+            <p className="text-sm text-foreground leading-relaxed font-medium">
               Context-aware HR infrastructure that adapts to how your
               organization already works.
             </p>
@@ -41,7 +41,7 @@ export function Footer() {
                 <li>
                   <a
                     href="/privacy"
-                    className="text-sm text-foreground/90 hover:text-accent transition-colors font-medium"
+                    className="text-sm text-foreground hover:text-accent transition-colors font-medium"
                   >
                     Privacy Policy
                   </a>
@@ -49,7 +49,7 @@ export function Footer() {
                 <li>
                   <a
                     href="/terms"
-                    className="text-sm text-foreground/90 hover:text-accent transition-colors font-medium"
+                    className="text-sm text-foreground hover:text-accent transition-colors font-medium"
                   >
                     Terms of Service
                   </a>
@@ -74,7 +74,7 @@ export function Footer() {
 
         {/* Bottom bar */}
         <div className="border-t border-border pt-6 flex flex-col md:flex-row justify-between items-center gap-4">
-          <div className="text-xs text-foreground/85 font-medium">
+          <div className="text-xs text-foreground font-medium">
             © {new Date().getFullYear()} Navi. All rights reserved.
           </div>
 
@@ -83,7 +83,7 @@ export function Footer() {
               href="https://instagram.com/navi"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-xs text-foreground/90 hover:text-accent transition-colors font-medium"
+              className="text-xs text-foreground hover:text-accent transition-colors font-medium"
             >
               Instagram
             </a>

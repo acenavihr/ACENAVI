@@ -3,8 +3,8 @@
 @layer base {
   :root {
     /* Light mode - Clean, minimal palette with blue accent */
-    --background: 249 250 254;
-    --foreground: #0a0a0a;
+    --background: #F9FAFE;
+    --foreground: #070404;
     
     --card: #ffffff;
     --card-foreground: #0a0a0a;
