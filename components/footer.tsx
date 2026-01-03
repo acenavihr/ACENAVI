@@ -24,7 +24,7 @@ export function Footer() {
             <div className="text-sm font-semibold text-foreground mb-2">
               Navi
             </div>
-            <p className="text-sm text-foreground/75 leading-relaxed">
+            <p className="text-sm text-foreground/95 leading-relaxed font-medium">
               Context-aware HR infrastructure that adapts to how your
               organization already works.
             </p>
@@ -41,7 +41,7 @@ export function Footer() {
                 <li>
                   <a
                     href="/privacy"
-                    className="text-sm text-foreground/80 hover:text-foreground transition-colors"
+                    className="text-sm text-foreground/90 hover:text-accent transition-colors font-medium"
                   >
                     Privacy Policy
                   </a>
@@ -49,7 +49,7 @@ export function Footer() {
                 <li>
                   <a
                     href="/terms"
-                    className="text-sm text-foreground/80 hover:text-foreground transition-colors"
+                    className="text-sm text-foreground/90 hover:text-accent transition-colors font-medium"
                   >
                     Terms of Service
                   </a>
@@ -64,7 +64,7 @@ export function Footer() {
               </h3>
               <a
                 href="mailto:hello@navi.hr"
-                className="text-sm text-foreground/80 hover:text-accent transition-colors"
+                className="text-sm text-black hover:text-accent transition-colors font-medium"
               >
                 hello@navi.hr
               </a>
@@ -74,7 +74,7 @@ export function Footer() {
 
         {/* Bottom bar */}
         <div className="border-t border-border pt-6 flex flex-col md:flex-row justify-between items-center gap-4">
-          <div className="text-xs text-foreground/60">
+          <div className="text-xs text-foreground/85 font-medium">
             © {new Date().getFullYear()} Navi. All rights reserved.
           </div>
 
@@ -83,7 +83,7 @@ export function Footer() {
               href="https://instagram.com/navi"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-xs text-foreground/70 hover:text-foreground transition-colors"
+              className="text-xs text-foreground/90 hover:text-accent transition-colors font-medium"
             >
               Instagram
             </a>
@@ -91,7 +91,7 @@ export function Footer() {
               href="https://linkedin.com/company/navi"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-xs text-foreground/70 hover:text-foreground transition-colors"
+              className="text-xs text-foreground/90 hover:text-accent transition-colors font-medium"
             >
               LinkedIn
             </a>

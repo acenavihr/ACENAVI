@@ -9,7 +9,7 @@ export function FinalCTASection() {
   return (
     <section 
       ref={elementRef as React.RefObject<HTMLElement>} 
-      className="py-24 md:py-32 bg-background"
+      className="section-padding bg-background"
     >
       <div 
         className="max-w-4xl mx-auto px-6 text-center transition-all duration-700 ease-out"

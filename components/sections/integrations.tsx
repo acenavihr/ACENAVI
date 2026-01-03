@@ -4,9 +4,10 @@ import { useScrollAnimation } from "@/hooks/use-scroll-animation"
 import { useState } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import { MessageSquare, Users, CheckCircle, Sparkle } from "lucide-react"
+import Image from "next/image"
 
 export function IntegrationsSection() {
-  const { isVisible, scrollProgress, elementRef } = useScrollAnimation(0.1)
+  const { scrollProgress, elementRef } = useScrollAnimation(0.2)
   const [activeIntegration, setActiveIntegration] = useState(0)
 
   const integrations = [
@@ -34,13 +35,13 @@ export function IntegrationsSection() {
   ]
 
   return (
-    <section ref={elementRef as React.RefObject<HTMLElement>} className="py-24 md:py-32 bg-muted/40">
+    <section ref={elementRef as React.RefObject<HTMLElement>} className="section-padding bg-muted/40">
       <div className="max-w-7xl mx-auto px-6">
         <div 
           className="text-center mb-16 transition-all duration-700 ease-out"
           style={{
-            opacity: isVisible ? 1 : 0,
-            transform: `translateY(${isVisible ? 0 : 20}px)`
+            opacity: scrollProgress,
+            transform: `translateY(${(1 - scrollProgress) * 30}px)`
           }}
         >
           <h2 className="text-3xl md:text-5xl font-bold tracking-tight mb-4">
@@ -56,7 +57,7 @@ export function IntegrationsSection() {
           <div className="space-y-8">
             {integrations.map((item, idx) => {
               const delay = idx * 0.15
-              const itemProgress = Math.max(0, Math.min(1, (scrollProgress - delay) / 0.3))
+              const itemProgress = Math.max(0, Math.min(1, (scrollProgress - delay) / 0.4))
               const isActive = activeIntegration === idx
               
               return (
@@ -123,64 +124,101 @@ export function IntegrationsSection() {
 function SlackPreview() {
   return (
     <motion.div
-      className="absolute inset-0 flex flex-col justify-center p-8 bg-gradient-to-br from-[#4A154B]/5 to-background"
+      className="absolute inset-0 flex flex-col justify-center p-6 md:p-8 bg-gradient-to-br from-[#4A154B]/5 to-background"
       initial={{ opacity: 0, x: 20 }}
       animate={{ opacity: 1, x: 0 }}
       exit={{ opacity: 0, x: -20 }}
       transition={{ duration: 0.4 }}
     >
       {/* Slack Logo */}
-      <div className="flex items-center gap-3 mb-8">
-        <div className="w-12 h-12 rounded-lg bg-[#4A154B] flex items-center justify-center">
-          <MessageSquare className="w-7 h-7 text-white" strokeWidth={2} />
+      <div className="flex items-center gap-3 mb-6 md:mb-8">
+        <div className="w-10 h-10 md:w-12 md:h-12 rounded-lg bg-[#4A154B] flex items-center justify-center overflow-hidden">
+          <Image 
+            src="/chat_slack.png" 
+            alt="Slack" 
+            width={28} 
+            height={28}
+            className="w-6 h-6 md:w-7 md:h-7 object-contain"
+          />
         </div>
         <div>
-          <p className="font-semibold text-lg">Slack</p>
+          <p className="font-semibold text-base md:text-lg">Slack</p>
           <p className="text-xs text-muted-foreground">HR Support Channel</p>
         </div>
       </div>
 
       {/* Animated Messages */}
-      <div className="space-y-4">
+      <div className="space-y-3 md:space-y-4">
         {/* Employee Message - Slides from Left */}
         <motion.div
-          className="flex items-start gap-3 p-4 bg-muted/60 border border-border rounded-lg"
+          className="flex items-start gap-2 md:gap-3 p-3 md:p-4 bg-muted/60 border border-border rounded-lg"
           initial={{ opacity: 0, x: -50 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ delay: 0.2, duration: 0.5, repeat: Infinity, repeatDelay: 3 }}
+          animate={{ 
+            opacity: [0, 1, 1, 0],
+            x: [-50, 0, 0, -50]
+          }}
+          transition={{ 
+            duration: 5,
+            times: [0, 0.1, 0.8, 1],
+            repeat: Infinity,
+            repeatDelay: 0.5
+          }}
         >
-          <div className="w-8 h-8 rounded bg-accent/30 flex items-center justify-center text-xs font-bold">
-            MG
+          <div className="w-7 h-7 md:w-8 md:h-8 rounded bg-accent/30 flex items-center justify-center text-xs font-bold flex-shrink-0">
+            E
           </div>
-          <div className="flex-1">
-            <p className="text-xs font-medium mb-1">Meenakshi Gunapati</p>
-            <p className="text-sm text-muted-foreground">How do I request time off?</p>
+          <div className="flex-1 min-w-0">
+            <p className="text-xs font-medium mb-1">Employee</p>
+            <p className="text-xs md:text-sm text-muted-foreground">How do I request time off?</p>
           </div>
         </motion.div>
 
         {/* Navi Response - Slides from Right */}
         <motion.div
-          className="flex items-start gap-3 p-4 bg-[#4A154B]/10 border border-[#4A154B]/30 rounded-lg ml-8"
+          className="flex items-start gap-2 md:gap-3 p-3 md:p-4 bg-[#4A154B]/10 border border-[#4A154B]/30 rounded-lg ml-4 md:ml-8"
           initial={{ opacity: 0, x: 50 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ delay: 0.6, duration: 0.5, repeat: Infinity, repeatDelay: 3 }}
+          animate={{ 
+            opacity: [0, 0, 1, 1, 0],
+            x: [50, 50, 0, 0, 50]
+          }}
+          transition={{ 
+            duration: 5,
+            times: [0, 0.15, 0.25, 0.8, 1],
+            repeat: Infinity,
+            repeatDelay: 0.5
+          }}
         >
-          <div className="w-8 h-8 rounded bg-[#4A154B] flex items-center justify-center">
-            <MessageSquare className="w-4 h-4 text-white" />
+          <div className="w-7 h-7 md:w-8 md:h-8 rounded bg-[#4A154B] flex items-center justify-center overflow-hidden flex-shrink-0">
+            <Image 
+              src="/chat_navi.png" 
+              alt="Navi" 
+              width={20} 
+              height={20}
+              className="w-5 h-5 object-contain"
+            />
           </div>
-          <div className="flex-1">
+          <div className="flex-1 min-w-0">
             <p className="text-xs font-medium mb-1 text-[#4A154B]">Navi</p>
-            <p className="text-sm">You can request time off through the HR portal. I'll guide you through the steps...</p>
+            <p className="text-xs md:text-sm">You can request time off through the HR portal. I'll guide you through the steps...</p>
           </div>
         </motion.div>
 
+        {/* Connected message */}
         <motion.div
-          className="flex items-center gap-2 p-3 bg-accent/5 border border-accent/20 rounded-lg"
+          className="flex items-center gap-2 p-2 md:p-3 bg-accent/5 border border-accent/20 rounded-lg"
           initial={{ opacity: 0, scale: 0.9 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ delay: 1, duration: 0.5, repeat: Infinity, repeatDelay: 3 }}
+          animate={{ 
+            opacity: [0, 0, 0, 1, 1, 0],
+            scale: [0.9, 0.9, 0.9, 1, 1, 0.9]
+          }}
+          transition={{ 
+            duration: 5,
+            times: [0, 0.25, 0.35, 0.45, 0.8, 1],
+            repeat: Infinity,
+            repeatDelay: 0.5
+          }}
         >
-          <CheckCircle className="w-5 h-5 text-accent" />
+          <CheckCircle className="w-4 h-4 md:w-5 md:h-5 text-accent flex-shrink-0" />
           <p className="text-xs text-muted-foreground">Connected to Navi HR Assistant</p>
         </motion.div>
       </div>
@@ -192,64 +230,101 @@ function SlackPreview() {
 function TeamsPreview() {
   return (
     <motion.div
-      className="absolute inset-0 flex flex-col justify-center p-8 bg-gradient-to-br from-[#6264A7]/5 to-background"
+      className="absolute inset-0 flex flex-col justify-center p-6 md:p-8 bg-gradient-to-br from-[#6264A7]/5 to-background"
       initial={{ opacity: 0, x: 20 }}
       animate={{ opacity: 1, x: 0 }}
       exit={{ opacity: 0, x: -20 }}
       transition={{ duration: 0.4 }}
     >
       {/* Teams Logo */}
-      <div className="flex items-center gap-3 mb-8">
-        <div className="w-12 h-12 rounded-lg bg-[#6264A7] flex items-center justify-center">
-          <Users className="w-7 h-7 text-white" strokeWidth={2} />
+      <div className="flex items-center gap-3 mb-6 md:mb-8">
+        <div className="w-10 h-10 md:w-12 md:h-12 rounded-lg bg-[#6264A7] flex items-center justify-center overflow-hidden">
+          <Image 
+            src="/chat_teams.png" 
+            alt="Teams" 
+            width={28} 
+            height={28}
+            className="w-6 h-6 md:w-7 md:h-7 object-contain"
+          />
         </div>
         <div>
-          <p className="font-semibold text-lg">Teams</p>
+          <p className="font-semibold text-base md:text-lg">Teams</p>
           <p className="text-xs text-muted-foreground">People & Culture Team</p>
         </div>
       </div>
 
       {/* Animated Chat */}
-      <div className="space-y-4">
+      <div className="space-y-3 md:space-y-4">
         {/* Employee Message - Slides from Left */}
         <motion.div
-          className="flex items-start gap-3 p-4 bg-muted/60 border border-border rounded-lg"
+          className="flex items-start gap-2 md:gap-3 p-3 md:p-4 bg-muted/60 border border-border rounded-lg"
           initial={{ opacity: 0, x: -50 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ delay: 0.2, duration: 0.5, repeat: Infinity, repeatDelay: 3 }}
+          animate={{ 
+            opacity: [0, 1, 1, 0],
+            x: [-50, 0, 0, -50]
+          }}
+          transition={{ 
+            duration: 5,
+            times: [0, 0.1, 0.8, 1],
+            repeat: Infinity,
+            repeatDelay: 0.5
+          }}
         >
-          <div className="w-8 h-8 rounded-full bg-accent/30 flex items-center justify-center text-xs font-bold">
-            MG
+          <div className="w-7 h-7 md:w-8 md:h-8 rounded-full bg-accent/30 flex items-center justify-center text-xs font-bold flex-shrink-0">
+            E
           </div>
-          <div className="flex-1">
-            <p className="text-xs font-medium mb-1">Meenakshi Gunapati</p>
-            <p className="text-sm text-muted-foreground">What's our parental leave policy?</p>
+          <div className="flex-1 min-w-0">
+            <p className="text-xs font-medium mb-1">Employee</p>
+            <p className="text-xs md:text-sm text-muted-foreground">What's our parental leave policy?</p>
           </div>
         </motion.div>
 
         {/* Navi Response - Slides from Right */}
         <motion.div
-          className="flex items-start gap-3 p-4 bg-[#6264A7]/10 border border-[#6264A7]/30 rounded-lg ml-8"
+          className="flex items-start gap-2 md:gap-3 p-3 md:p-4 bg-[#6264A7]/10 border border-[#6264A7]/30 rounded-lg ml-4 md:ml-8"
           initial={{ opacity: 0, x: 50 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ delay: 0.6, duration: 0.5, repeat: Infinity, repeatDelay: 3 }}
+          animate={{ 
+            opacity: [0, 0, 1, 1, 0],
+            x: [50, 50, 0, 0, 50]
+          }}
+          transition={{ 
+            duration: 5,
+            times: [0, 0.15, 0.25, 0.8, 1],
+            repeat: Infinity,
+            repeatDelay: 0.5
+          }}
         >
-          <div className="w-8 h-8 rounded bg-[#6264A7] flex items-center justify-center">
-            <Users className="w-4 h-4 text-white" />
+          <div className="w-7 h-7 md:w-8 md:h-8 rounded bg-[#6264A7] flex items-center justify-center overflow-hidden flex-shrink-0">
+            <Image 
+              src="/chat_navi.png" 
+              alt="Navi" 
+              width={20} 
+              height={20}
+              className="w-5 h-5 object-contain"
+            />
           </div>
-          <div className="flex-1">
+          <div className="flex-1 min-w-0">
             <p className="text-xs font-medium mb-1 text-[#6264A7]">Navi</p>
-            <p className="text-sm">Our parental leave policy offers 16 weeks fully paid. Here's what you need to know...</p>
+            <p className="text-xs md:text-sm">Our parental leave policy offers 16 weeks fully paid. Here's what you need to know...</p>
           </div>
         </motion.div>
 
+        {/* Connected message */}
         <motion.div
-          className="flex items-center gap-2 p-3 bg-accent/5 border border-accent/20 rounded-lg"
+          className="flex items-center gap-2 p-2 md:p-3 bg-accent/5 border border-accent/20 rounded-lg"
           initial={{ opacity: 0, scale: 0.9 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ delay: 1, duration: 0.5, repeat: Infinity, repeatDelay: 3 }}
+          animate={{ 
+            opacity: [0, 0, 0, 1, 1, 0],
+            scale: [0.9, 0.9, 0.9, 1, 1, 0.9]
+          }}
+          transition={{ 
+            duration: 5,
+            times: [0, 0.25, 0.35, 0.45, 0.8, 1],
+            repeat: Infinity,
+            repeatDelay: 0.5
+          }}
         >
-          <CheckCircle className="w-5 h-5 text-accent" />
+          <CheckCircle className="w-4 h-4 md:w-5 md:h-5 text-accent flex-shrink-0" />
           <p className="text-xs text-muted-foreground">Powered by Navi AI</p>
         </motion.div>
       </div>

@@ -13,7 +13,7 @@ import {
 } from "lucide-react"
 
 export function ProblemSolutionSection() {
-  const { isVisible, scrollProgress, elementRef } = useScrollAnimation(0.1)
+  const { scrollProgress, elementRef } = useScrollAnimation(0.2)
 
   const problems = [
     {
@@ -54,14 +54,14 @@ export function ProblemSolutionSection() {
   ]
 
   return (
-    <section ref={elementRef as React.RefObject<HTMLElement>} className="py-24 md:py-32 bg-background">
+    <section ref={elementRef as React.RefObject<HTMLElement>} className="section-padding bg-background">
       <div className="max-w-7xl mx-auto px-6">
         {/* Section Header */}
         <div 
           className="text-center mb-20 transition-all duration-700 ease-out"
           style={{
-            opacity: isVisible ? 1 : 0,
-            transform: `translateY(${isVisible ? 0 : 20}px)`
+            opacity: scrollProgress,
+            transform: `translateY(${(1 - scrollProgress) * 30}px)`
           }}
         >
           <h2 className="text-3xl md:text-5xl font-bold tracking-tight mb-4">
@@ -76,8 +76,8 @@ export function ProblemSolutionSection() {
           <div 
             className="space-y-12 transition-all duration-700 ease-out"
             style={{
-              opacity: isVisible ? 1 : 0,
-              transform: `translateX(${isVisible ? 0 : -30}px)`
+              opacity: scrollProgress,
+              transform: `translateX(${(1 - scrollProgress) * -30}px)`
             }}
           >
             <div className="mb-8">
@@ -88,7 +88,7 @@ export function ProblemSolutionSection() {
             
             {problems.map((problem, idx) => {
               const delay = idx * 0.1
-              const itemProgress = Math.max(0, Math.min(1, (scrollProgress - delay) / 0.3))
+              const itemProgress = Math.max(0, Math.min(1, (scrollProgress - delay) / 0.4))
               const Icon = problem.icon
               
               return (
@@ -119,8 +119,8 @@ export function ProblemSolutionSection() {
           <div 
             className="space-y-12 transition-all duration-700 ease-out"
             style={{
-              opacity: isVisible ? 1 : 0,
-              transform: `translateX(${isVisible ? 0 : 30}px)`
+              opacity: scrollProgress,
+              transform: `translateX(${(1 - scrollProgress) * 30}px)`
             }}
           >
             <div className="mb-8">
@@ -130,8 +130,8 @@ export function ProblemSolutionSection() {
             </div>
             
             {solutions.map((solution, idx) => {
-              const delay = idx * 0.1 + 0.2
-              const itemProgress = Math.max(0, Math.min(1, (scrollProgress - delay) / 0.3))
+              const delay = idx * 0.1 + 0.15
+              const itemProgress = Math.max(0, Math.min(1, (scrollProgress - delay) / 0.4))
               const Icon = solution.icon
               
               return (
@@ -163,8 +163,8 @@ export function ProblemSolutionSection() {
         <div 
           className="text-center mt-24 transition-all duration-700 ease-out"
           style={{
-            opacity: scrollProgress,
-            transform: `translateY(${(1 - scrollProgress) * 20}px)`
+            opacity: Math.max(0, (scrollProgress - 0.3) / 0.7),
+            transform: `translateY(${(1 - Math.max(0, (scrollProgress - 0.3) / 0.7)) * 20}px)`
           }}
         >
           <p className="text-xl md:text-2xl font-medium text-muted-foreground max-w-3xl mx-auto leading-relaxed">

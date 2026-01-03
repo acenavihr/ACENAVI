@@ -50,8 +50,8 @@ export function LifecycleStage({ iconName, title, subtitle, points, index, showI
       <div className="mt-4 text-center">
         <h3 className="text-sm md:text-base font-medium text-foreground tracking-tight">{title}</h3>
         
-        {/* Hover Card with Details - Above everything */}
-        <div className="absolute left-1/2 -translate-x-1/2 bottom-full mb-2 w-[280px] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 pointer-events-none">
+        {/* Hover Card - DESKTOP: Above (unchanged), MOBILE: Right side */}
+        <div className="absolute left-1/2 -translate-x-1/2 bottom-full mb-2 w-[280px] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 pointer-events-none z-50">
           <div className="bg-card border border-border rounded-lg shadow-2xl p-4">
             {/* Subtitle */}
             <p className="text-xs font-semibold text-[#2f5bff] mb-3 uppercase tracking-wide">
@@ -69,8 +69,9 @@ export function LifecycleStage({ iconName, title, subtitle, points, index, showI
             </ul>
           </div>
           
-          {/* Arrow pointing down to circle */}
-          <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-0 h-0 border-l-8 border-r-8 border-t-8 border-l-transparent border-r-transparent border-t-border"></div>
+          {/* Arrow - DESKTOP: pointing down, MOBILE: pointing left */}
+          <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-0 h-0 border-l-8 border-r-8 border-t-8 border-l-transparent border-r-transparent border-t-border lg:block max-lg:hidden"></div>
+
         </div>
       </div>
     </motion.div>

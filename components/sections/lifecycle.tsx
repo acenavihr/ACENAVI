@@ -118,7 +118,7 @@ const STAGES = [
 
 export function LifecycleSection() {
   return (
-    <section className="py-24 px-6 max-w-7xl mx-auto overflow-hidden">
+    <section className="section-padding px-6 max-w-7xl mx-auto overflow-hidden">
       <div className="text-center mb-20">
         <motion.h2
           className="text-4xl md:text-6xl font-bold text-foreground mb-6"
@@ -134,14 +134,12 @@ export function LifecycleSection() {
           animate={{ opacity: 1 }}
           transition={{ delay: 0.3, duration: 0.8 }}
         >
-
-            Navi supports meaningful moments at every stage
-
-          
+          Navi supports meaningful moments at every stage
         </motion.p>
       </div>
 
       <div className="relative">
+        {/* DESKTOP SVG - UNCHANGED */}
         <svg
           className="absolute top-0 left-0 w-full h-full hidden lg:block pointer-events-none"
           viewBox="0 0 1000 900"
@@ -167,7 +165,11 @@ export function LifecycleSection() {
           </defs>
         </svg>
 
-        <div className="grid grid-cols-2 lg:grid-cols-4 relative min-h-[700px]">
+        {/* MOBILE VERTICAL LINE */}
+<div className="absolute left-1/2 -translate-x-1/2 top-0 bottom-20 w-0.5 bg-gradient-to-b from-[#2f5bff]/40 via-[#2f5bff]/80 to-[#2f5bff]/40 lg:hidden" />
+
+        {/* DESKTOP GRID - UNCHANGED */}
+        <div className="hidden lg:grid grid-cols-2 lg:grid-cols-4 relative min-h-[700px]">
           {/* Row 1: Stages 1-4 */}
           {STAGES.slice(0, 4).map((stage, i) => (
             <div key={stage.title} className="flex justify-center items-center h-[180px]">
@@ -229,6 +231,22 @@ export function LifecycleSection() {
               </div>
             ))}
           </div>
+        </div>
+
+        {/* MOBILE VERTICAL LIST */}
+        <div className="flex flex-col gap-8 lg:hidden items-center">
+          {STAGES.map((stage, i) => (
+            <div key={stage.title} className="flex justify-center">
+              <LifecycleStage
+                iconName={stage.icon as any}
+                title={stage.title}
+                subtitle={stage.subtitle}
+                points={stage.points}
+                index={i}
+                showIndex={false}
+              />
+            </div>
+          ))}
         </div>
       </div>
     </section>
