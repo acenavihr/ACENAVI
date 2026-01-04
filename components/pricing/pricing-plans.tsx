@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react"
 
 export function PricingPlans() {
   const [isVisible, setIsVisible] = useState(false)
+  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null)
   const sectionRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
@@ -23,86 +24,121 @@ export function PricingPlans() {
     return () => observer.disconnect()
   }, [])
 
-  const plans = [
+  const trustIndicators = [
     {
-      name: "Starter",
-      description: "For teams just starting their HR transformation.",
-      price: "Custom",
-      features: [
-        "Up to 50 employees",
-        "Slack integration",
-        "Basic onboarding workflows",
-        "Email support",
-        "Policy distribution",
-      ],
+      value: "2-4 weeks",
+      label: "Average implementation time",
     },
     {
-      name: "Growth",
-      description: "For growing companies scaling their HR operations.",
-      price: "Custom",
-      featured: true,
-      features: [
-        "Up to 500 employees",
-        "Slack & Microsoft Teams",
-        "Advanced workflows",
-        "Learning & development tools",
-        "Priority support",
-        "Custom integrations",
-      ],
+      value: "40%",
+      label: "Reduction in HR support tickets",
     },
     {
-      name: "Enterprise",
-      description: "For large organizations with advanced requirements.",
-      price: "Custom",
-      features: [
-        "Unlimited employees",
-        "All integrations",
-        "Advanced analytics",
-        "Dedicated support",
-        "Custom features",
-        "SLA guarantee",
-      ],
+      value: "Enterprise",
+      label: "Security & compliance ready",
     },
   ]
+
+  // Generate random characters for lottery effect
+  const getRandomChar = (char: string) => {
+    if (char === ' ' || char === '-') return char
+    const chars = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz%'
+    return chars[Math.floor(Math.random() * chars.length)]
+  }
+
+  const LotteryText = ({ text, delay, shouldAnimate }: { text: string; delay: number; shouldAnimate: boolean }) => {
+    const [displayText, setDisplayText] = useState(text)
+    const [isAnimating, setIsAnimating] = useState(false)
+
+    useEffect(() => {
+      if (!shouldAnimate) {
+        setDisplayText(text)
+        return
+      }
+
+      setIsAnimating(true)
+      const chars = text.split('')
+      let iterations = 0
+      const maxIterations = 12
+
+      const interval = setInterval(() => {
+        if (iterations >= maxIterations) {
+          setDisplayText(text)
+          setIsAnimating(false)
+          clearInterval(interval)
+          return
+        }
+
+        setDisplayText(
+          chars
+            .map((char, index) => {
+              if (iterations > index * 2) {
+                return text[index]
+              }
+              return getRandomChar(char)
+            })
+            .join('')
+        )
+
+        iterations++
+      }, 50)
+
+      return () => clearInterval(interval)
+    }, [shouldAnimate, text])
+
+    return <span>{displayText}</span>
+  }
 
   return (
     <section ref={sectionRef} className="py-20 md:py-32 bg-muted/40 border-b border-border">
       <div className="max-w-7xl mx-auto px-6">
-        <h2 className="text-3xl md:text-4xl font-bold mb-16">Pricing Plans</h2>
+        <div className="text-center mb-16">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">Trusted by HR teams across India</h2>
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+            Organizations of all sizes use Navi to transform their employee experience
+          </p>
+        </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {plans.map((plan, idx) => (
+          {trustIndicators.map((indicator, idx) => (
             <div
               key={idx}
-              className={`relative bg-card border rounded-lg transition-all duration-500 ${
-                plan.featured ? "md:ring-2 ring-accent border-accent" : "border-border"
-              } ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`}
-              style={{ transitionDelay: `${idx * 80}ms` }}
+              onMouseEnter={() => setHoveredIndex(idx)}
+              onMouseLeave={() => setHoveredIndex(null)}
+              className={`text-center p-8 rounded-2xl transition-all duration-500 cursor-pointer ${
+                isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
+              }`}
+              style={{ 
+                transitionDelay: `${idx * 80}ms`,
+                borderWidth: '4px',
+                borderStyle: 'solid',
+                borderColor: hoveredIndex === idx ? '#1F44FF' : '#000000',
+                backgroundColor: '#F9FAFE'
+              }}
             >
-              {plan.featured && (
-                <div className="absolute -top-3 left-6 bg-accent text-accent-foreground px-3 py-1 text-xs font-semibold rounded">
-                  Most Popular
-                </div>
-              )}
-
-              <div className="p-8">
-                <h3 className="text-2xl font-bold mb-2">{plan.name}</h3>
-                <p className="text-sm text-muted-foreground mb-6">{plan.description}</p>
-
-                <div className="mb-8">
-                  <p className="text-3xl font-bold">{plan.price}</p>
-                  <p className="text-xs text-muted-foreground mt-1">Contact sales for custom pricing</p>
-                </div>
-
-                <div className="space-y-4">
-                  {plan.features.map((feature, fidx) => (
-                    <div key={fidx} className="flex items-start gap-3">
-                      <span className="text-accent mt-1">✓</span>
-                      <span className="text-sm text-muted-foreground">{feature}</span>
-                    </div>
-                  ))}
-                </div>
+              <div 
+                className="text-4xl font-bold mb-2"
+                style={{ 
+                  color: hoveredIndex === idx ? '#1F44FF' : '#000000',
+                  transition: 'color 0.3s ease'
+                }}
+              >
+                <LotteryText 
+                  text={indicator.value} 
+                  delay={idx * 100} 
+                  shouldAnimate={(isVisible && hoveredIndex === null) || hoveredIndex === idx}
+                  key={`${idx}-${hoveredIndex === idx ? Date.now() : 'initial'}`}
+                />
               </div>
+              <p 
+                className="text-sm"
+                style={{ 
+                  color: hoveredIndex === idx ? '#1F44FF' : '#000000',
+                  transition: 'color 0.3s ease'
+                }}
+              >
+                {indicator.label}
+              </p>
             </div>
           ))}
         </div>

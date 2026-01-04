@@ -27,28 +27,53 @@ export function FeaturesWorkflow() {
   const workflows = [
     {
       number: "01",
-      title: "Contextual Surfacing",
+      title: "Instant Answers to Employee Questions",
       description:
-        "HR information appears at the moment employees need it. During onboarding, during performance conversations, or when benefits questions arise.",
+        "Fast, accurate responses to HR, policy, IT, and workplace queries — anytime.",
     },
     {
       number: "02",
-      title: "Slack-First Experience",
+      title: "Guided Onboarding & Lifecycle Support",
       description:
-        "Your Slack channel becomes the hub for HR guidance. Policies, learning resources, and employee support—all accessible without leaving the conversation.",
+        "Structured guidance and reminders across every key employee milestone.",
     },
     {
       number: "03",
-      title: "Microsoft Teams Integration",
+      title: "Built-In Manager Assistance",
       description:
-        "Teams users get the same seamless experience. Navi tabs, bots, and notifications work naturally within Teams workflows.",
+        "Clear, practical support for people decisions and conversations.",
     },
     {
       number: "04",
-      title: "Real-Time Guidance",
+      title: "Smart HR & IT Escalations",
       description:
-        "HR teams proactively surface guidance, reminders, and resources. Reduce support tickets by answering questions before they're asked.",
+        "Seamlessly convert conversations into tickets — with full context.",
     },
+    {
+      number: "05",
+      title: "Personalized & Role-Aware Responses",
+      description:
+        "Policies and answers tailored to role, grade, location, and eligibility.",
+    },
+    {
+      number: "06",
+      title: "Enterprise-Grade Security & Compliance",
+      description:
+        "SSO, encryption, and access controls built for enterprise environments.",
+    },
+    {
+      number: "07",
+      title: "Works Globally Across Devices",
+      description:
+        "Consistent support for hybrid, remote, and distributed teams.",
+    },
+    {
+      number: "08",
+      title: "Simple Admin Insights & Analytics",
+      description:
+        "Actionable trends to improve policy, communication, and experience.",
+    },
+    
   ]
 
   return (

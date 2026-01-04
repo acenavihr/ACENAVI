@@ -4,6 +4,7 @@ import { FeaturesHero } from "@/components/features/features-hero"
 import { FeaturesGrid } from "@/components/features/features-grid"
 import { FeaturesWorkflow } from "@/components/features/features-workflow"
 import { FeaturesCTA } from "@/components/features/features-cta"
+import { FeaturesConnection } from "@/components/features/features-connection"
 
 export const metadata = {
   title: "Features - Navi",
@@ -16,6 +17,7 @@ export default function FeaturesPage() {
       <Navigation />
       <FeaturesHero />
       <FeaturesWorkflow />
+      <FeaturesConnection />
       <FeaturesGrid />
       <FeaturesCTA />
       <Footer />
