@@ -7,29 +7,39 @@ export function PricingFAQ() {
 
   const faqs = [
     {
-      question: "Can I change plans later?",
+      question: "How does Navi actually create value for our organization?",
       answer:
-        "Yes, you can upgrade or downgrade your plan at any time. Changes take effect immediately, and we'll pro-rate your billing accordingly.",
+        "Navi helps people feel supported, informed and connected at work. Instead of searching, waiting for replies, or feeling unsure about what to do next, employees and managers can simply ask Navi and get clear, human guidance instantly. This means fewer HR tickets, more confident managers, and employees who feel seen and cared for — all without changing your existing systems or workflows.",
     },
     {
-      question: "Do you offer discounts for annual billing?",
+      question: "How does Navi integrate with our existing systems?",
       answer:
-        "Yes. Organizations that commit to annual billing receive a 20% discount. Contact our sales team to discuss annual options.",
+        "Navi lives inside the tools your people already use — like Microsoft Teams or Slack — and connects to your HR, learning and performance systems in the background. There’s no new platform for your teams to learn. Navi simply makes everyday interactions smoother, kinder and easier.",
     },
     {
-      question: "What does 'custom pricing' mean?",
+      question: "Is Navi secure, and how do you handle data privacy?",
       answer:
-        "Our pricing is based on your employee count, feature needs, and integration requirements. Schedule a demo with our sales team to get a custom quote.",
+        "Yes. Navi is designed with enterprise security principles and strict governance. We align with India’s Digital Personal Data Protection (DPDP) Act and handle employee information with care and respect. Your organization’s data remains private and protected — always",
     },
     {
-      question: "Is there a free trial?",
+      question: "How long does implementation take, and what internal effort is required?",
       answer:
-        "We offer a 14-day free trial for qualified teams. Your trial includes full access to all features. No credit card required.",
+        "Most organizations go live within 2–4 weeks. Navi is intentionally lightweight, so the burden on your internal teams is minimal. We work closely with HR and IT to configure Navi to your people, your tone and your culture — ensuring a smooth and confident rollout.",
     },
     {
-      question: "What happens to my data if I cancel?",
+      question: "Who is Navi designed for, and what size companies benefit most?",
       answer:
-        "Your data remains yours. We can export all your data in standard formats within 30 days of cancellation.",
+        "Navi is built for organizations that care deeply about employee experience and communication. Whether you are a growing company or a large enterprise, Navi helps HR and leadership create clarity, connection and support across the people journey — at scale.",
+    },
+    {
+      question: "Does Navi replace our HR platforms?",
+      answer:
+        "No — Navi doesn’t replace your HR systems. It makes them work the way people actually live and work today. Employees shouldn’t have to dig through systems or wait days for answers. With Navi, they can simply ask, act and move forward with confidence. That means less effort for HR — and a more human experience for everyone.",
+    },
+    {
+      question: "Can managers and leaders use Navi too?",
+      answer:
+        "Yes. Navi supports leaders with insights, nudges and everyday guidance so they can show up better for their teams. Whether it’s onboarding, recognition, performance or simply staying connected — Navi helps leaders build stronger, more trusting relationships at work.",
     },
   ]
 

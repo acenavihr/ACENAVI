@@ -1,8 +1,6 @@
 "use client"
 
 import { useEffect, useRef, useState } from "react"
-import { Button } from "@/components/ui/button"
-import Link from "next/link"
 
 export function PricingPlans() {
   const [isVisible, setIsVisible] = useState(false)
@@ -91,14 +89,10 @@ export function PricingPlans() {
                 <h3 className="text-2xl font-bold mb-2">{plan.name}</h3>
                 <p className="text-sm text-muted-foreground mb-6">{plan.description}</p>
 
-                <div className="mb-6">
+                <div className="mb-8">
                   <p className="text-3xl font-bold">{plan.price}</p>
                   <p className="text-xs text-muted-foreground mt-1">Contact sales for custom pricing</p>
                 </div>
-
-                <Button asChild className="w-full bg-primary text-primary-foreground hover:bg-primary/90 mb-8">
-                  <Link href="/book-demo">Schedule Demo</Link>
-                </Button>
 
                 <div className="space-y-4">
                   {plan.features.map((feature, fidx) => (

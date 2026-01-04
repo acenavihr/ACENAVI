@@ -38,6 +38,7 @@ export function Navigation() {
   }, [mobileMenuOpen])
 
   const isActive = (path: string) => pathname === path
+  const isBookDemoPage = pathname === "/book-demo"
 
   const navLinks = [
     { href: "/", label: "Home", icon: Home },
@@ -134,30 +135,32 @@ export function Navigation() {
               })}
             </div>
 
-            {/* CTA Button - Animated width and text transition */}
-            <Button 
-              asChild 
-              className={`hidden md:inline-flex bg-accent text-accent-foreground hover:bg-accent/90 transition-all duration-700 ease-out hover:scale-105 shadow-sm rounded-full overflow-hidden ${
-                scrolled ? "px-4 py-2 text-xs h-9" : "px-6 py-2 text-sm h-10"
-              }`}
-            >
-              <Link href="/book-demo" className="relative flex items-center justify-center">
-                <span 
-                  className={`transition-all duration-700 ease-out absolute ${
-                    scrolled ? "scale-100 opacity-100" : "scale-0 opacity-0"
-                  }`}
-                >
-                  Meet
-                </span>
-                <span 
-                  className={`transition-all duration-700 ease-out whitespace-nowrap ${
-                    scrolled ? "scale-0 opacity-0" : "scale-100 opacity-100"
-                  }`}
-                >
-                  Meet the Team
-                </span>
-              </Link>
-            </Button>
+            {/* CTA Button - Animated width and text transition - Hidden on book-demo page */}
+            {!isBookDemoPage && (
+              <Button 
+                asChild 
+                className={`hidden md:inline-flex bg-accent text-accent-foreground hover:bg-accent/90 transition-all duration-700 ease-out hover:scale-105 shadow-sm rounded-full overflow-hidden ${
+                  scrolled ? "px-4 py-2 text-xs h-9" : "px-6 py-2 text-sm h-10"
+                }`}
+              >
+                <Link href="/book-demo" className="relative flex items-center justify-center">
+                  <span 
+                    className={`transition-all duration-700 ease-out absolute ${
+                      scrolled ? "scale-100 opacity-100" : "scale-0 opacity-0"
+                    }`}
+                  >
+                    Meet
+                  </span>
+                  <span 
+                    className={`transition-all duration-700 ease-out whitespace-nowrap ${
+                      scrolled ? "scale-0 opacity-0" : "scale-100 opacity-100"
+                    }`}
+                  >
+                    Meet the Team
+                  </span>
+                </Link>
+              </Button>
+            )}
 
             {/* Mobile menu button */}
             <button
@@ -200,13 +203,16 @@ export function Navigation() {
             </Link>
           ))}
           
-          <Button 
-            asChild 
-            size="lg"
-            className="bg-accent text-accent-foreground hover:bg-accent/90 transition-all duration-300 hover:scale-105 shadow-lg mt-4"
-          >
-            <Link href="/book-demo">Meet the Team</Link>
-          </Button>
+          {/* Hide button in mobile menu on book-demo page */}
+          {!isBookDemoPage && (
+            <Button 
+              asChild 
+              size="lg"
+              className="bg-accent text-accent-foreground hover:bg-accent/90 transition-all duration-300 hover:scale-105 shadow-lg mt-4"
+            >
+              <Link href="/book-demo">Meet the Team</Link>
+            </Button>
+          )}
         </div>
       </div>
     </nav>

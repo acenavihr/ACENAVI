@@ -66,10 +66,9 @@ export function BookingForm() {
               <h3 className="text-lg font-semibold mb-2">Questions?</h3>
               <p className="text-muted-foreground">
                 Email us at{" "}
-                <a href="mailto:hello@navi.hr" className="text-accent hover:underline">
-                  hello@navi.hr
+                <a href="mailto:hello.navi.ai@gmail.com" className="text-accent hover:underline">
+                hello.navi.ai@gmail.com
                 </a>{" "}
-                or call <span className="font-medium">+1 (555) 123-4567</span>
               </p>
             </div>
           </div>

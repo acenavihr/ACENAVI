@@ -1,5 +1,4 @@
-import { Button } from "@/components/ui/button"
-import Link from "next/link"
+import { AnimatedButton } from "@/components/ui/animated-button"
 
 export function FeaturesCTA() {
   return (
@@ -9,9 +8,7 @@ export function FeaturesCTA() {
         <p className="text-lg text-muted-foreground mb-8">
           Navi puts HR at the center of your team's communication. Schedule a demo to see it in action.
         </p>
-        <Button asChild size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90">
-          <Link href="/book-demo">Meet the Team</Link>
-        </Button>
+        <AnimatedButton text="Meet the Team" href="/book-demo" />
       </div>
     </section>
   )

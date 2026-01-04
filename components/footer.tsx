@@ -1,100 +1,71 @@
 "use client"
 
-import { useScrollAnimation } from "@/hooks/use-scroll-animation"
+import { useState } from "react"
 
 export function Footer() {
-  const { scrollProgress, elementRef } = useScrollAnimation(0.1)
+  const [hoveredItem, setHoveredItem] = useState<string | null>(null)
 
   return (
-    <footer
-      ref={elementRef as React.RefObject<HTMLElement>}
-      className="border-t border-border bg-background"
-    >
-      <div
-        className="max-w-6xl mx-auto px-6 py-16 transition-all duration-700 ease-out"
-        style={{
-          opacity: scrollProgress,
-          transform: `translateY(${(1 - scrollProgress) * 16}px)`,
-        }}
-      >
-        {/* Top */}
+    <footer className="border-t border-border bg-background">
+      <div className="max-w-6xl mx-auto px-6 py-16">
         <div className="flex flex-col md:flex-row justify-between gap-12 mb-12">
-          {/* Brand / Trust */}
           <div className="max-w-sm">
-            <div className="text-sm font-semibold text-foreground mb-2">
+            <div className="text-sm font-semibold mb-2 text-muted-foreground">
               Navi
             </div>
-            <p className="text-sm text-foreground leading-relaxed font-medium">
-              Context-aware HR infrastructure that adapts to how your
-              organization already works.
+            <p className="text-sm leading-relaxed font-medium text-muted-foreground">
+              Context-aware HR infrastructure that adapts to how your organization already works.
             </p>
           </div>
 
-          {/* Legal + Contact */}
           <div className="flex gap-16">
-            {/* Legal */}
             <div>
-              <h3 className="text-xs font-semibold uppercase tracking-wide text-foreground mb-4">
+              <h3 className="text-xs font-semibold uppercase tracking-wide mb-4 text-muted-foreground">
                 Legal
               </h3>
               <ul className="space-y-3">
-                <li>
-                  <a
-                    href="/privacy"
-                    className="text-sm text-foreground hover:text-accent transition-colors font-medium"
-                  >
+                <li onMouseEnter={() => setHoveredItem("privacy")} onMouseLeave={() => setHoveredItem(null)}>
+                  <a href="/privacy" className={`text-sm font-medium transition-colors ${hoveredItem === "privacy" ? "text-accent" : "text-muted-foreground"}`}>
                     Privacy Policy
                   </a>
                 </li>
-                <li>
-                  <a
-                    href="/terms"
-                    className="text-sm text-foreground hover:text-accent transition-colors font-medium"
-                  >
+                <li onMouseEnter={() => setHoveredItem("terms")} onMouseLeave={() => setHoveredItem(null)}>
+                  <a href="/terms" className={`text-sm font-medium transition-colors ${hoveredItem === "terms" ? "text-accent" : "text-muted-foreground"}`}>
                     Terms of Service
                   </a>
                 </li>
               </ul>
             </div>
 
-            {/* Contact */}
             <div>
-              <h3 className="text-xs font-semibold uppercase tracking-wide text-foreground mb-4">
+              <h3 className="text-xs font-semibold uppercase tracking-wide mb-4 text-muted-foreground">
                 Contact
               </h3>
-              <a
-                href="mailto:hello@navi.hr"
-                className="text-sm text-black hover:text-accent transition-colors font-medium"
-              >
-                hello@navi.hr
-              </a>
+              <div onMouseEnter={() => setHoveredItem("email")} onMouseLeave={() => setHoveredItem(null)}>
+                <a href="mailto:hello.navi.ai@gmail.com" className={`text-sm font-medium transition-colors ${hoveredItem === "email" ? "text-accent" : "text-muted-foreground"}`}>
+                  hello.navi.ai@gmail.com
+                </a>
+              </div>
             </div>
           </div>
         </div>
 
-        {/* Bottom bar */}
         <div className="border-t border-border pt-6 flex flex-col md:flex-row justify-between items-center gap-4">
-          <div className="text-xs text-foreground font-medium">
+          <div className="text-xs font-medium text-muted-foreground">
             © {new Date().getFullYear()} Navi. All rights reserved.
           </div>
 
           <div className="flex gap-6">
-            <a
-              href="https://instagram.com/navi"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-xs text-foreground hover:text-accent transition-colors font-medium"
-            >
-              Instagram
-            </a>
-            <a
-              href="https://linkedin.com/company/navi"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-xs text-foreground/90 hover:text-accent transition-colors font-medium"
-            >
-              LinkedIn
-            </a>
+            <div onMouseEnter={() => setHoveredItem("instagram")} onMouseLeave={() => setHoveredItem(null)}>
+              <a href="https://www.instagram.com/naviai.in/" target="_blank" rel="noopener noreferrer" className={`text-xs font-medium transition-colors ${hoveredItem === "instagram" ? "text-accent" : "text-muted-foreground"}`}>
+                Instagram
+              </a>
+            </div>
+            <div onMouseEnter={() => setHoveredItem("linkedin")} onMouseLeave={() => setHoveredItem(null)}>
+              <a href="https://www.linkedin.com/company/navihr/" target="_blank" rel="noopener noreferrer" className={`text-xs font-medium transition-colors ${hoveredItem === "linkedin" ? "text-accent" : "text-muted-foreground"}`}>
+                LinkedIn
+              </a>
+            </div>
           </div>
         </div>
       </div>
