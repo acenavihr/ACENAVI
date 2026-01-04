@@ -108,7 +108,8 @@ export function ProblemSolutionSection() {
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           
           {/* Visual Content Area */}
-          <div className="relative h-[400px] md:h-[500px] rounded-3xl bg-[#F9FAFE] border group">
+          <div className="relative h-[400px] md:h-[500px] rounded-3xl bg-[#F9FAFE] border group overflow-hidden">
+
 
             
             {/* Problem Visual - RED THEME */}
