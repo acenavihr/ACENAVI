@@ -1,167 +1,102 @@
 "use client"
 
-import type React from "react"
-
-import { useState } from "react"
-import { Button } from "@/components/ui/button"
+import { useState, useEffect } from "react"
 
 export function BookingForm() {
-  const [submitted, setSubmitted] = useState(false)
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    company: "",
-    employeeCount: "",
-    message: "",
-  })
+  const [bookingComplete, setBookingComplete] = useState(false)
+  const [userEmail, setUserEmail] = useState("")
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
-    const { name, value } = e.target
-    setFormData((prev) => ({
-      ...prev,
-      [name]: value,
-    }))
-  }
+  // Listen for Calendly event completion
+  useEffect(() => {
+    const handleCalendlyEvent = (e: MessageEvent) => {
+      if (e.data.event && e.data.event === 'calendly.event_scheduled') {
+        // Extract email if available from Calendly payload
+        const email = e.data.payload?.invitee?.email || "your email"
+        setUserEmail(email)
+        setBookingComplete(true)
+        
+        // Reset after 5 seconds
+        setTimeout(() => {
+          setBookingComplete(false)
+          setUserEmail("")
+        }, 5000)
+      }
+    }
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault()
-    // In a real app, this would send data to a backend service
-    console.log("Demo booking submitted:", formData)
-    setSubmitted(true)
-    setTimeout(() => {
-      setSubmitted(false)
-      setFormData({ name: "", email: "", company: "", employeeCount: "", message: "" })
-    }, 3000)
-  }
+    window.addEventListener('message', handleCalendlyEvent)
+    return () => window.removeEventListener('message', handleCalendlyEvent)
+  }, [])
 
   return (
     <section className="py-20 md:py-32">
-      <div className="max-w-3xl mx-auto px-6">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+      <div className="max-w-6xl mx-auto px-6">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 items-start">
           {/* Left: Info */}
-          <div className="space-y-8">
+          <div className="space-y-6">
             <div>
-              <h3 className="text-lg font-semibold mb-2">What to expect</h3>
-              <ul className="space-y-3 text-muted-foreground">
+              <h3 className="text-lg font-semibold mb-4">What to expect</h3>
+              <ul className="space-y-3 text-sm text-muted-foreground">
                 <li className="flex gap-3">
-                  <span className="text-accent font-bold">✓</span>
-                  <span>15-20 minute walkthrough of Navi's core features</span>
+                  <span className="text-accent font-bold text-base">✓</span>
+                  <span>15-20 minute walkthrough of ACENAVI's core features</span>
                 </li>
                 <li className="flex gap-3">
-                  <span className="text-accent font-bold">✓</span>
+                  <span className="text-accent font-bold text-base">✓</span>
                   <span>Live demo of Slack and Teams integration</span>
                 </li>
                 <li className="flex gap-3">
-                  <span className="text-accent font-bold">✓</span>
+                  <span className="text-accent font-bold text-base">✓</span>
                   <span>Custom pricing based on your organization size</span>
                 </li>
                 <li className="flex gap-3">
-                  <span className="text-accent font-bold">✓</span>
+                  <span className="text-accent font-bold text-base">✓</span>
                   <span>Q&A and next steps discussion</span>
                 </li>
               </ul>
             </div>
 
-            <div>
+            <div className="pt-4 border-t border-border">
               <h3 className="text-lg font-semibold mb-2">Questions?</h3>
-              <p className="text-muted-foreground">
+              <p className="text-sm text-muted-foreground">
                 Email us at{" "}
-                <a href="mailto:hello.navi.ai@gmail.com" className="text-accent hover:underline">
-                hello.navi.ai@gmail.com
-                </a>{" "}
+                <a 
+                  href="mailto:contact@acenavi.in" 
+                  className="text-accent hover:underline font-medium"
+                >
+                  contact@acenavi.in
+                </a>
               </p>
             </div>
           </div>
 
-          {/* Right: Form */}
-          <div className="bg-card border border-border rounded-lg p-8">
-            {submitted ? (
-              <div className="text-center py-12">
-                <div className="w-12 h-12 rounded-full bg-accent/20 flex items-center justify-center mx-auto mb-4">
-                  <span className="text-xl">✓</span>
+          {/* Right: Calendly or Success - Aligned to top */}
+          <div className="lg:col-span-2 lg:-mt-30">
+            {bookingComplete ? (
+              // Success Message
+              <div className="bg-card border border-border rounded-xl p-12 text-center shadow-lg">
+                <div className="w-20 h-20 rounded-full bg-accent/20 flex items-center justify-center mx-auto mb-6">
+                  <span className="text-4xl">✓</span>
                 </div>
-                <h3 className="text-xl font-semibold mb-2">Demo requested!</h3>
-                <p className="text-muted-foreground">Our team will be in touch shortly to confirm your demo time.</p>
+                <h3 className="text-3xl font-bold mb-3">Demo Scheduled!</h3>
+                <p className="text-lg text-muted-foreground mb-2">
+                  We've sent a calendar invite to{" "}
+                  <span className="font-medium text-foreground">{userEmail}</span>
+                </p>
+                <p className="text-muted-foreground">
+                  Looking forward to showing you ACENAVI!
+                </p>
               </div>
             ) : (
-              <form onSubmit={handleSubmit} className="space-y-5">
-                <div>
-                  <label className="block text-sm font-medium mb-2">Full Name *</label>
-                  <input
-                    type="text"
-                    name="name"
-                    value={formData.name}
-                    onChange={handleChange}
-                    required
-                    className="w-full px-4 py-2 border border-input rounded-md bg-background text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-accent"
-                    placeholder="Jane Doe"
-                  />
-                </div>
-
-                <div>
-                  <label className="block text-sm font-medium mb-2">Work Email *</label>
-                  <input
-                    type="email"
-                    name="email"
-                    value={formData.email}
-                    onChange={handleChange}
-                    required
-                    className="w-full px-4 py-2 border border-input rounded-md bg-background text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-accent"
-                    placeholder="jane@company.com"
-                  />
-                </div>
-
-                <div>
-                  <label className="block text-sm font-medium mb-2">Company Name *</label>
-                  <input
-                    type="text"
-                    name="company"
-                    value={formData.company}
-                    onChange={handleChange}
-                    required
-                    className="w-full px-4 py-2 border border-input rounded-md bg-background text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-accent"
-                    placeholder="Acme Inc"
-                  />
-                </div>
-
-                <div>
-                  <label className="block text-sm font-medium mb-2">Employee Count *</label>
-                  <select
-                    name="employeeCount"
-                    value={formData.employeeCount}
-                    onChange={handleChange}
-                    required
-                    className="w-full px-4 py-2 border border-input rounded-md bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-accent"
-                  >
-                    <option value="">Select range</option>
-                    <option value="1-50">1-50</option>
-                    <option value="51-200">51-200</option>
-                    <option value="201-500">201-500</option>
-                    <option value="501-1000">501-1,000</option>
-                    <option value="1000+">1,000+</option>
-                  </select>
-                </div>
-
-                <div>
-                  <label className="block text-sm font-medium mb-2">Additional Info</label>
-                  <textarea
-                    name="message"
-                    value={formData.message}
-                    onChange={handleChange}
-                    rows={3}
-                    className="w-full px-4 py-2 border border-input rounded-md bg-background text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-accent resize-none"
-                    placeholder="Tell us about your HR challenges..."
-                  />
-                </div>
-
-                <Button type="submit" size="lg" className="w-full bg-accent text-accent-foreground hover:bg-accent/90">
-                  Request Demo
-                </Button>
-
-                <p className="text-xs text-muted-foreground text-center">
-                  We'll reach out to confirm your preferred time within 24 hours.
-                </p>
-              </form>
+              // Calendly Embed - No container, scrolls with page
+              <div className="calendly-inline-widget min-h-[1000px]">
+                <iframe
+                  src="https://calendly.com/acenavidemo/30min"
+                  width="100%"
+                  height="1000"
+                  frameBorder="0"
+                  style={{ minHeight: '1000px' }}
+                />
+              </div>
             )}
           </div>
         </div>

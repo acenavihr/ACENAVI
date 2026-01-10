@@ -7,39 +7,39 @@ export function PricingFAQ() {
 
   const faqs = [
     {
-      question: "How does Navi actually create value for our organization?",
+      question: "How does ACENAVI actually create value for our organization?",
       answer:
-        "Navi helps people feel supported, informed and connected at work. Instead of searching, waiting for replies, or feeling unsure about what to do next, employees and managers can simply ask Navi and get clear, human guidance instantly. This means fewer HR tickets, more confident managers, and employees who feel seen and cared for — all without changing your existing systems or workflows.",
+        "ACENAVI helps people feel supported, informed and connected at work. Instead of searching, waiting for replies, or feeling unsure about what to do next, employees and managers can simply ask ACENAVI and get clear, human guidance instantly. This means fewer HR tickets, more confident managers, and employees who feel seen and cared for — all without changing your existing systems or workflows.",
     },
     {
-      question: "How does Navi integrate with our existing systems?",
+      question: "How does ACENAVI integrate with our existing systems?",
       answer:
-        "Navi lives inside the tools your people already use — like Microsoft Teams or Slack — and connects to your HR, learning and performance systems in the background. There’s no new platform for your teams to learn. Navi simply makes everyday interactions smoother, kinder and easier.",
+        "ACENAVI lives inside the tools your people already use — like Microsoft Teams or Slack — and connects to your HR, learning and performance systems in the background. There’s no new platform for your teams to learn. ACENAVI simply makes everyday interactions smoother, kinder and easier.",
     },
     {
-      question: "Is Navi secure, and how do you handle data privacy?",
+      question: "Is ACENAVI secure, and how do you handle data privacy?",
       answer:
-        "Yes. Navi is designed with enterprise security principles and strict governance. We align with India’s Digital Personal Data Protection (DPDP) Act and handle employee information with care and respect. Your organization’s data remains private and protected — always",
+        "Yes. ACENAVI is designed with enterprise security principles and strict governance. We align with India’s Digital Personal Data Protection (DPDP) Act and handle employee information with care and respect. Your organization’s data remains private and protected — always",
     },
     {
       question: "How long does implementation take, and what internal effort is required?",
       answer:
-        "Most organizations go live within 2–4 weeks. Navi is intentionally lightweight, so the burden on your internal teams is minimal. We work closely with HR and IT to configure Navi to your people, your tone and your culture — ensuring a smooth and confident rollout.",
+        "Most organizations go live within 2–4 weeks. ACENAVI is intentionally lightweight, so the burden on your internal teams is minimal. We work closely with HR and IT to configure ACENAVI to your people, your tone and your culture — ensuring a smooth and confident rollout.",
     },
     {
-      question: "Who is Navi designed for, and what size companies benefit most?",
+      question: "Who is ACENAVI designed for, and what size companies benefit most?",
       answer:
-        "Navi is built for organizations that care deeply about employee experience and communication. Whether you are a growing company or a large enterprise, Navi helps HR and leadership create clarity, connection and support across the people journey — at scale.",
+        "ACENAVI is built for organizations that care deeply about employee experience and communication. Whether you are a growing company or a large enterprise, ACENAVI helps HR and leadership create clarity, connection and support across the people journey — at scale.",
     },
     {
-      question: "Does Navi replace our HR platforms?",
+      question: "Does ACENAVI replace our HR platforms?",
       answer:
-        "No — Navi doesn’t replace your HR systems. It makes them work the way people actually live and work today. Employees shouldn’t have to dig through systems or wait days for answers. With Navi, they can simply ask, act and move forward with confidence. That means less effort for HR — and a more human experience for everyone.",
+        "No — ACENAVI doesn’t replace your HR systems. It makes them work the way people actually live and work today. Employees shouldn’t have to dig through systems or wait days for answers. With ACENAVI, they can simply ask, act and move forward with confidence. That means less effort for HR — and a more human experience for everyone.",
     },
     {
-      question: "Can managers and leaders use Navi too?",
+      question: "Can managers and leaders use ACENAVI too?",
       answer:
-        "Yes. Navi supports leaders with insights, nudges and everyday guidance so they can show up better for their teams. Whether it’s onboarding, recognition, performance or simply staying connected — Navi helps leaders build stronger, more trusting relationships at work.",
+        "Yes. ACENAVI supports leaders with insights, nudges and everyday guidance so they can show up better for their teams. Whether it’s onboarding, recognition, performance or simply staying connected — ACENAVI helps leaders build stronger, more trusting relationships at work.",
     },
   ]
 

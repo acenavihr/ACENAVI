@@ -19,7 +19,7 @@ export function FinalCTASection() {
         }}
       >
         <h2 className="text-3xl md:text-5xl font-bold mb-6 tracking-tight">
-          See Navi in action inside Slack & Teams
+          See ACENAVI in action inside Slack & Teams
         </h2>
         
         <div className="flex justify-center mb-6">

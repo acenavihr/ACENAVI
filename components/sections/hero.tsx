@@ -33,7 +33,7 @@ export function HeroSection() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2, ease: [0.25, 0.1, 0.25, 1] }}
           >
-            Navi helps your people get instant guidance, proactive nudges, and everyday support 
+            ACENAVI helps your people get instant guidance, proactive nudges, and everyday support 
             across the employee lifecycle — without switching tools.
           </motion.p>
 

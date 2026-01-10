@@ -1,0 +1,52 @@
+{
+    "testimonials": [
+      {
+        "id": 1,
+        "name": "Priya Sharma",
+        "role": "Head of People Operations",
+        "company": "TechCorp India",
+        "content": "ACENAVI transformed how our 500+ employees interact with HR. Questions that used to take days now get answered instantly in Slack. Our HR team can finally focus on strategic work instead of repetitive queries.",
+        "rating": 5
+      },
+      {
+        "id": 2,
+        "name": "Rajesh Kumar",
+        "role": "VP of Engineering",
+        "company": "StartupXYZ",
+        "content": "The onboarding experience improved dramatically. New engineers get instant answers to policy questions without interrupting their teammates. It's like having an HR expert available 24/7 in Teams.",
+        "rating": 5
+      },
+      {
+        "id": 3,
+        "name": "Anita Desai",
+        "role": "Chief Human Resources Officer",
+        "company": "FinanceHub",
+        "content": "We reduced HR support tickets by 60% in the first month. ACENAVI handles everything from leave policies to benefits questions, and it integrates perfectly with our existing systems.",
+        "rating": 5
+      },
+      {
+        "id": 4,
+        "name": "Vikram Patel",
+        "role": "Director of HR",
+        "company": "GlobalTech Solutions",
+        "content": "The manager assistance features are game-changing. Our team leads now have instant access to best practices for difficult conversations and performance reviews. It's like having an HR coach on demand.",
+        "rating": 5
+      },
+      {
+        "id": 5,
+        "name": "Meera Reddy",
+        "role": "Employee Experience Lead",
+        "company": "InnovateCo",
+        "content": "Our employee satisfaction scores went up 40% after implementing ACENAVI. People love getting instant, accurate answers without waiting for email responses or booking HR meetings.",
+        "rating": 5
+      },
+      {
+        "id": 6,
+        "name": "Arjun Mehta",
+        "role": "Senior HR Manager",
+        "company": "RetailChain",
+        "content": "Managing 2000+ employees across multiple locations was overwhelming. ACENAVI gives everyone consistent, accurate information regardless of their location or timezone. It's been transformative.",
+        "rating": 5
+      }
+    ]
+  }

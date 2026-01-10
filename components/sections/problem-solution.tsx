@@ -69,7 +69,7 @@ export function ProblemSolutionSection() {
         {/* Section Header */}
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold tracking-tight mb-6">
-            Navi Solves This — Calmly, Quietly, Inside Work
+            ACENAVI Solves This — Calmly, Quietly, Inside Work
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
             See how our platform transforms chaotic workflows into streamlined growth engines.
@@ -266,7 +266,7 @@ export function ProblemSolutionSection() {
         {/* Bottom Text */}
         <div className="text-center mt-20">
           <p className="text-xl md:text-2xl font-medium text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-            Navi isn't another HR system.<br />
+            ACENAVI isn't another HR system.<br />
             <span className="text-foreground">It's the quiet layer of clarity that lives where your people already work.</span>
           </p>
         </div>

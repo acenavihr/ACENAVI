@@ -48,7 +48,7 @@ export function IntegrationsSection() {
             We are where you work
           </h2>
           <p className="text-lg md:text-xl text-muted-foreground">
-            Navi lives in the tools your team already uses every day.
+            ACENAVI lives in the tools your team already uses every day.
           </p>
         </div>
 
@@ -173,7 +173,7 @@ function SlackPreview() {
           </div>
         </motion.div>
 
-        {/* Navi Response - Slides from Right */}
+        {/* ACENAVI Response - Slides from Right */}
         <motion.div
           className="flex items-start gap-2 md:gap-3 p-3 md:p-4 bg-[#4A154B]/10 border border-[#4A154B]/30 rounded-lg ml-4 md:ml-8"
           initial={{ opacity: 0, x: 50 }}
@@ -191,14 +191,14 @@ function SlackPreview() {
           <div className="w-7 h-7 md:w-8 md:h-8 rounded bg-[#4A154B] flex items-center justify-center overflow-hidden flex-shrink-0">
             <Image 
               src="/chat_navi.png" 
-              alt="Navi" 
+              alt="ACENAVI" 
               width={20} 
               height={20}
               className="w-5 h-5 object-contain"
             />
           </div>
           <div className="flex-1 min-w-0">
-            <p className="text-xs font-medium mb-1 text-[#4A154B]">Navi</p>
+            <p className="text-xs font-medium mb-1 text-[#4A154B]">ACENAVI</p>
             <p className="text-xs md:text-sm">You can request time off through the HR portal. I'll guide you through the steps...</p>
           </div>
         </motion.div>
@@ -219,7 +219,7 @@ function SlackPreview() {
           }}
         >
           <CheckCircle className="w-4 h-4 md:w-5 md:h-5 text-accent flex-shrink-0" />
-          <p className="text-xs text-muted-foreground">Connected to Navi HR Assistant</p>
+          <p className="text-xs text-muted-foreground">Connected to ACENAVI HR Assistant</p>
         </motion.div>
       </div>
     </motion.div>
@@ -279,7 +279,7 @@ function TeamsPreview() {
           </div>
         </motion.div>
 
-        {/* Navi Response - Slides from Right */}
+        {/* ACENAVI Response - Slides from Right */}
         <motion.div
           className="flex items-start gap-2 md:gap-3 p-3 md:p-4 bg-[#6264A7]/10 border border-[#6264A7]/30 rounded-lg ml-4 md:ml-8"
           initial={{ opacity: 0, x: 50 }}
@@ -297,14 +297,14 @@ function TeamsPreview() {
           <div className="w-7 h-7 md:w-8 md:h-8 rounded bg-[#6264A7] flex items-center justify-center overflow-hidden flex-shrink-0">
             <Image 
               src="/chat_navi.png" 
-              alt="Navi" 
+              alt="ACENAVI" 
               width={20} 
               height={20}
               className="w-5 h-5 object-contain"
             />
           </div>
           <div className="flex-1 min-w-0">
-            <p className="text-xs font-medium mb-1 text-[#6264A7]">Navi</p>
+            <p className="text-xs font-medium mb-1 text-[#6264A7]">ACENAVI</p>
             <p className="text-xs md:text-sm">Our parental leave policy offers 16 weeks fully paid. Here's what you need to know...</p>
           </div>
         </motion.div>
@@ -325,7 +325,7 @@ function TeamsPreview() {
           }}
         >
           <CheckCircle className="w-4 h-4 md:w-5 md:h-5 text-accent flex-shrink-0" />
-          <p className="text-xs text-muted-foreground">Powered by Navi AI</p>
+          <p className="text-xs text-muted-foreground">Powered by ACENAVI AI</p>
         </motion.div>
       </div>
     </motion.div>

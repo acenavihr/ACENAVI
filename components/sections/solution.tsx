@@ -17,7 +17,7 @@ export function SolutionSection() {
         >
           <h2 className="text-3xl md:text-5xl font-bold tracking-tight">We are where you work</h2>
           <p className="text-lg md:text-xl text-muted-foreground mt-3">
-            Navi lives in the tools your team already uses every day.
+            ACENAVI lives in the tools your team already uses every day.
           </p>
         </div>
 
@@ -83,7 +83,7 @@ export function SolutionSection() {
               <div className="flex items-center gap-4 p-4 bg-accent/10 border border-accent rounded-lg shadow-sm">
                 <div className="w-10 h-10 rounded bg-accent/30 flex items-center justify-center text-lg">✓</div>
                 <div className="flex-1 min-w-0">
-                  <p className="text-sm font-medium">Connected to Navi</p>
+                  <p className="text-sm font-medium">Connected to ACENAVI</p>
                 </div>
               </div>
             </div>

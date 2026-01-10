@@ -11,7 +11,7 @@ export function Footer() {
         <div className="flex flex-col md:flex-row justify-between gap-12 mb-12">
           <div className="max-w-sm">
             <div className="text-sm font-semibold mb-2 text-muted-foreground">
-              Navi
+              ACENAVI
             </div>
             <p className="text-sm leading-relaxed font-medium text-muted-foreground">
               Context-aware HR infrastructure that adapts to how your organization already works.
@@ -42,8 +42,8 @@ export function Footer() {
                 Contact
               </h3>
               <div onMouseEnter={() => setHoveredItem("email")} onMouseLeave={() => setHoveredItem(null)}>
-                <a href="mailto:hello.navi.ai@gmail.com" className={`text-sm font-medium transition-colors ${hoveredItem === "email" ? "text-accent" : "text-muted-foreground"}`}>
-                  hello.navi.ai@gmail.com
+                <a href="mailto:contact@acenavi.in" className={`text-sm font-medium transition-colors ${hoveredItem === "email" ? "text-accent" : "text-muted-foreground"}`}>
+                  contact@acenavi.in
                 </a>
               </div>
             </div>
@@ -52,7 +52,7 @@ export function Footer() {
 
         <div className="border-t border-border pt-6 flex flex-col md:flex-row justify-between items-center gap-4">
           <div className="text-xs font-medium text-muted-foreground">
-            © {new Date().getFullYear()} Navi. All rights reserved.
+            © {new Date().getFullYear()} ACENAVI. All rights reserved.
           </div>
 
           <div className="flex gap-6">

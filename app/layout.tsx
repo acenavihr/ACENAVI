@@ -1,6 +1,7 @@
 import type { Metadata } from "next"
 import { Outfit } from "next/font/google"
 import "./globals.css"
+import Script from "next/script"
 
 const outfit = Outfit({ 
   subsets: ["latin"],
@@ -9,7 +10,7 @@ const outfit = Outfit({
 })
 
 export const metadata: Metadata = {
-  title: "Navi - AI-Powered People Support",
+  title: "ACENAVI - AI-Powered People Support",
   description: "Clarity at work. Before friction builds.",
 }
 
@@ -20,8 +21,21 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={outfit.variable}>
+      <head>
+        {/* Calendly CSS */}
+        <link 
+          href="https://assets.calendly.com/assets/external/widget.css" 
+          rel="stylesheet"
+        />
+      </head>
       <body className="font-sans antialiased">
         {children}
+        
+        {/* Calendly JS - Load after body */}
+        <Script 
+          src="https://assets.calendly.com/assets/external/widget.js" 
+          strategy="lazyOnload"
+        />
       </body>
     </html>
   )

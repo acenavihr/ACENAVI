@@ -39,12 +39,19 @@ export function Navigation() {
 
   const isActive = (path: string) => pathname === path
   const isBookDemoPage = pathname === "/book-demo"
+  const isPricingPage = pathname === "/pricing"
 
   const navLinks = [
     { href: "/", label: "Home", icon: Home },
     { href: "/features", label: "Features", icon: Sparkles },
     { href: "/pricing", label: "Pricing", icon: IndianRupee },
   ]
+
+  // Dynamic button text based on page
+  const buttonText = {
+    full: isPricingPage ? "Contact Sales" : "Meet the Team",
+    short: isPricingPage ? "Contact" : "Meet"
+  }
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 flex justify-center pointer-events-none">
@@ -149,14 +156,14 @@ export function Navigation() {
                       scrolled ? "scale-100 opacity-100" : "scale-0 opacity-0"
                     }`}
                   >
-                    Meet
+                    {buttonText.short}
                   </span>
                   <span 
                     className={`transition-all duration-700 ease-out whitespace-nowrap ${
                       scrolled ? "scale-0 opacity-0" : "scale-100 opacity-100"
                     }`}
                   >
-                    Meet the Team
+                    {buttonText.full}
                   </span>
                 </Link>
               </Button>
@@ -210,7 +217,7 @@ export function Navigation() {
               size="lg"
               className="bg-accent text-accent-foreground hover:bg-accent/90 transition-all duration-300 hover:scale-105 shadow-lg mt-4"
             >
-              <Link href="/book-demo">Meet the Team</Link>
+              <Link href="/book-demo">{buttonText.full}</Link>
             </Button>
           )}
         </div>

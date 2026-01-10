@@ -134,7 +134,7 @@ export function LifecycleSection() {
           animate={{ opacity: 1 }}
           transition={{ delay: 0.3, duration: 0.8 }}
         >
-          Navi supports meaningful moments at every stage
+          ACENAVI supports meaningful moments at every stage
         </motion.p>
       </div>
 

@@ -95,7 +95,7 @@ export function PricingPlans() {
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">Trusted by HR teams across India</h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Organizations of all sizes use Navi to transform their employee experience
+            Organizations of all sizes use ACENAVI to transform their employee experience
           </p>
         </div>
 
@@ -110,9 +110,9 @@ export function PricingPlans() {
               }`}
               style={{ 
                 transitionDelay: `${idx * 80}ms`,
-                borderWidth: '4px',
+                borderWidth: '1px',
                 borderStyle: 'solid',
-                borderColor: hoveredIndex === idx ? '#1F44FF' : '#000000',
+                borderColor: hoveredIndex === idx ? '#1F44FF' : '#DADADA',
                 backgroundColor: '#F9FAFE'
               }}
             >
