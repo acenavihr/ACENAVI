@@ -25,7 +25,7 @@ export async function POST(request: Request) {
           <meta name="viewport" content="width=device-width, initial-scale=1.0">
         </head>
         <body style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; line-height: 1.6; color: #333; max-width: 600px; margin: 0 auto; padding: 20px;">
-          <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 30px; border-radius: 10px 10px 0 0; text-align: center;">
+          <div style="background: #1F44FF; padding: 30px; border-radius: 10px 10px 0 0; text-align: center;">
             <h1 style="color: white; margin: 0; font-size: 24px;">🎯 New Custom Demo Request</h1>
           </div>
           
@@ -45,7 +45,7 @@ export async function POST(request: Request) {
                     <strong style="color: #6b7280;">Email:</strong>
                   </td>
                   <td style="padding: 12px 0; border-bottom: 1px solid #e5e7eb; text-align: right;">
-                    <a href="mailto:${email}" style="color: #667eea; text-decoration: none;">${email}</a>
+                    <a href="mailto:${email}" style="color: #1F44FF; text-decoration: none;">${email}</a>
                   </td>
                 </tr>
                 <tr>
@@ -61,7 +61,7 @@ export async function POST(request: Request) {
             
             <div style="background: white; padding: 20px; border-radius: 8px; margin-bottom: 20px;">
               <p style="margin: 0 0 10px 0;"><strong style="color: #6b7280;">Preferred Times:</strong></p>
-              <p style="margin: 0; white-space: pre-wrap; background: #f9fafb; padding: 15px; border-radius: 6px; border-left: 4px solid #667eea;">${preferredTimes}</p>
+              <p style="margin: 0; white-space: pre-wrap; background: #f9fafb; padding: 15px; border-radius: 6px; border-left: 4px solid #1F44FF;">${preferredTimes}</p>
             </div>
             
             ${message ? `
@@ -94,7 +94,7 @@ export async function POST(request: Request) {
           <meta name="viewport" content="width=device-width, initial-scale=1.0">
         </head>
         <body style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; line-height: 1.6; color: #333; max-width: 600px; margin: 0 auto; padding: 20px;">
-          <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 30px; border-radius: 10px 10px 0 0; text-align: center;">
+          <div style="background: #1F44FF; padding: 30px; border-radius: 10px 10px 0 0; text-align: center;">
             <h1 style="color: white; margin: 0; font-size: 24px;">✅ Request Received!</h1>
           </div>
           
@@ -116,14 +116,14 @@ export async function POST(request: Request) {
               </div>
             </div>
             
-            <div style="background: #dbeafe; padding: 15px; border-radius: 8px; border-left: 4px solid #3b82f6; margin: 20px 0;">
+            <div style="background: #dbeafe; padding: 15px; border-radius: 8px; border-left: 4px solid #1F44FF; margin: 20px 0;">
               <p style="margin: 0; color: #1e40af; font-size: 14px;">
                 <strong>What's Next?</strong><br>
                 Our team will review your availability and send you calendar invite options that match your timezone and schedule.
               </p>
             </div>
             
-            <p style="font-size: 16px;">In the meantime, feel free to explore our <a href="https://acenavi.in" style="color: #667eea; text-decoration: none;">website</a> or reply to this email with any questions.</p>
+            <p style="font-size: 16px;">In the meantime, feel free to explore our <a href="https://acenavi.in" style="color: #1F44FF; text-decoration: none;">website</a> or reply to this email with any questions.</p>
             
             <p style="font-size: 16px;">Looking forward to showing you how ACENAVI can transform your HR operations!</p>
             
@@ -133,8 +133,8 @@ export async function POST(request: Request) {
                 <strong>The ACENAVI Team</strong>
               </p>
               <p style="margin: 10px 0 0 0; font-size: 14px;">
-                <a href="mailto:contact@acenavi.in" style="color: #667eea; text-decoration: none;">contact@acenavi.in</a><br>
-                <a href="https://acenavi.in" style="color: #667eea; text-decoration: none;">acenavi.in</a>
+                <a href="mailto:contact@acenavi.in" style="color: #1F44FF; text-decoration: none;">contact@acenavi.in</a><br>
+                <a href="https://acenavi.in" style="color: #1F44FF; text-decoration: none;">acenavi.in</a>
               </p>
             </div>
           </div>

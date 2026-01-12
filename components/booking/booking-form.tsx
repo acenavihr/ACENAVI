@@ -189,7 +189,7 @@ export function BookingForm() {
           <div className="lg:col-span-2 lg:-mt-30">
             {bookingComplete || submitSuccess ? (
               // Success Message (for both Calendly and Custom Request)
-              <div className="bg-card border border-border rounded-xl p-12 text-center shadow-lg">
+              <div className="bg-card border border-border rounded-xl p-12 text-center shadow-lg mt-32">
                 <div className="w-20 h-20 rounded-full bg-accent/20 flex items-center justify-center mx-auto mb-6">
                   <span className="text-4xl">✓</span>
                 </div>
@@ -395,11 +395,11 @@ export function BookingForm() {
                   </div>
                 )}
                 <iframe
-                  src="https://calendly.com/acenavidemo/30min?hide_gdpr_banner=1&background_color=1a1a1a&text_color=ffffff&primary_color=667eea"
+                  src="https://calendly.com/acenavidemo/30min?hide_gdpr_banner=1&background_color=ffffff&text_color=000000&primary_color=1F44FF&embed_type=Inline&embed_domain=acenavi.in"
                   width="100%"
                   height="1000"
                   frameBorder="0"
-                  style={{ minHeight: '1000px', opacity: calendlyLoaded ? 1 : 0 }}
+                  style={{ minHeight: '1000px', opacity: calendlyLoaded ? 1 : 0, background: 'transparent' }}
                   onLoad={() => setCalendlyLoaded(true)}
                 />
               </div>
