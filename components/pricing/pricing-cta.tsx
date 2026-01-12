@@ -10,6 +10,9 @@ export function PricingCTA() {
         </p>
         <AnimatedButton text="Contact Sales" href="/book-demo" />
       </div>
+      <p className="text-sm text-muted-foreground mt-4 text-center">
+          No pressure. Just a conversation.
+        </p>
     </section>
   )
 }

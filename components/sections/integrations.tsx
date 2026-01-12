@@ -3,7 +3,7 @@
 import { useScrollAnimation } from "@/hooks/use-scroll-animation"
 import { useState } from "react"
 import { motion, AnimatePresence } from "framer-motion"
-import { MessageSquare, Users, CheckCircle, Sparkle } from "lucide-react"
+import { MessageSquare, Users, CheckCircle, Sparkle, TrendingUp } from "lucide-react"
 import Image from "next/image"
 
 export function IntegrationsSection() {
@@ -219,7 +219,7 @@ function SlackPreview() {
           }}
         >
           <CheckCircle className="w-4 h-4 md:w-5 md:h-5 text-accent flex-shrink-0" />
-          <p className="text-xs text-muted-foreground">Connected to ACENAVI HR Assistant</p>
+          <p className="text-xs text-muted-foreground">Powered by ACENAVI</p>
         </motion.div>
       </div>
     </motion.div>
@@ -325,7 +325,7 @@ function TeamsPreview() {
           }}
         >
           <CheckCircle className="w-4 h-4 md:w-5 md:h-5 text-accent flex-shrink-0" />
-          <p className="text-xs text-muted-foreground">Powered by ACENAVI AI</p>
+          <p className="text-xs text-muted-foreground">Powered by ACENAVI</p>
         </motion.div>
       </div>
     </motion.div>
@@ -344,59 +344,72 @@ function SeamlessPreview() {
     >
       {/* Main centered container */}
       <div className="relative flex flex-col items-center">
-        {/* Animation area - contains icon + orbits + waves */}
+        {/* Animation area - contains logo + orbits + waves */}
         <div className="relative w-64 h-64 mb-8">
-          {/* Pulsing Rings - Centered exactly on the tick */}
+          {/* Pulsing Rings - Centered exactly on the logo */}
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none z-0">
             {/* Wave 1 */}
             <motion.div
-              className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-16 h-16 rounded-full border-2 border-[#2f5bff]/50"
+              className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-20 h-20 rounded-full bg-[#2f5bff]/10"
               animate={{ 
-                scale: [1, 3],
-                opacity: [0.5, 0]
+                scale: [1, 2.5],
+                opacity: [0.4, 0]
               }}
               transition={{ 
                 duration: 2,
                 repeat: Infinity,
                 repeatDelay: 4,
-                ease: "linear"
+                ease: "easeOut"
               }}
             />
             {/* Wave 2 */}
             <motion.div
-              className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-16 h-16 rounded-full border-2 border-[#2f5bff]/50"
+              className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-20 h-20 rounded-full bg-[#2f5bff]/10"
               animate={{ 
-                scale: [1, 3],
-                opacity: [0.5, 0]
+                scale: [1, 2.5],
+                opacity: [0.4, 0]
               }}
               transition={{ 
                 duration: 2,
                 repeat: Infinity,
                 repeatDelay: 4,
-                ease: "linear",
+                ease: "easeOut",
                 delay: 2
               }}
             />
             {/* Wave 3 */}
             <motion.div
-              className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-16 h-16 rounded-full border-2 border-[#2f5bff]/50"
+              className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-20 h-20 rounded-full bg-[#2f5bff]/10"
               animate={{ 
-                scale: [1, 3],
-                opacity: [0.5, 0]
+                scale: [1, 2.5],
+                opacity: [0.4, 0]
               }}
               transition={{ 
                 duration: 2,
                 repeat: Infinity,
                 repeatDelay: 4,
-                ease: "linear",
+                ease: "easeOut",
                 delay: 4
               }}
             />
           </div>
 
-          {/* Central CheckCircle Icon */}
+          {/* Central Navi Logo with circular glow */}
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-20">
-            <CheckCircle className="w-16 h-16 text-[#2f5bff]" strokeWidth={2.5} />
+            <div className="relative">
+              {/* Circular glow background */}
+              <div className="absolute inset-0 w-20 h-20 -translate-x-1/2 -translate-y-1/2 left-1/2 top-1/2 rounded-full bg-[#2f5bff]/20 blur-xl" />
+              {/* Logo */}
+              <div className="relative w-20 h-20 rounded-full bg-white/90 backdrop-blur-sm border-2 border-[#2f5bff]/30 flex items-center justify-center overflow-hidden shadow-lg">
+                <Image 
+                  src="/navi_symbol.png" 
+                  alt="ACENAVI" 
+                  width={48} 
+                  height={48}
+                  className="w-12 h-12 object-contain"
+                />
+              </div>
+            </div>
           </div>
 
           {/* Rotating container for orbiting icons */}
@@ -405,22 +418,35 @@ function SeamlessPreview() {
             animate={{ rotate: 360 }}
             transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
           >
-            {/* Three orbiting icons at 0°, 120°, 240° */}
+            {/* Three orbiting icons with labels at 0°, 120°, 240° */}
             {[
-              { angle: 0, icon: MessageSquare },
-              { angle: 120, icon: Users },
-              { angle: 240, icon: Sparkle }
+              { 
+                angle: 0, 
+                icon: MessageSquare, 
+                sparkle: true,
+                label: "Ask & Resolve"
+              },
+              { 
+                angle: 120, 
+                icon: Users,
+                label: "HR Guidance & Support"
+              },
+              { 
+                angle: 240, 
+                icon: Sparkle,
+                label: "Learning & Career Growth"
+              }
             ].map((item, idx) => {
-              const radius = 80 // Distance from center
+              const radius = 90 // Distance from center
               const angleRad = (item.angle * Math.PI) / 180
               const x = Math.cos(angleRad) * radius
               const y = Math.sin(angleRad) * radius
               const Icon = item.icon
               
               return (
-                <motion.div
+                <div
                   key={idx}
-                  className="absolute w-12 h-12 rounded-full bg-card border-2 border-[#2f5bff] flex items-center justify-center shadow-lg"
+                  className="absolute"
                   style={{
                     top: '50%',
                     left: '50%',
@@ -428,15 +454,39 @@ function SeamlessPreview() {
                     marginLeft: `${x}px`,
                     transform: 'translate(-50%, -50%)',
                   }}
-                  animate={{
-                    rotate: -360,
-                  }}
-                  transition={{
-                    rotate: { duration: 20, repeat: Infinity, ease: "linear" },
-                  }}
                 >
-                  <Icon className="w-6 h-6 text-[#2f5bff]" strokeWidth={2} />
-                </motion.div>
+                  {/* Icon container */}
+                  <motion.div
+                    className="relative w-14 h-14 rounded-full bg-card border-2 border-[#2f5bff] flex items-center justify-center shadow-lg"
+                    animate={{
+                      rotate: -360,
+                    }}
+                    transition={{
+                      rotate: { duration: 20, repeat: Infinity, ease: "linear" },
+                    }}
+                  >
+                    <Icon className="w-6 h-6 text-[#2f5bff]" strokeWidth={2} />
+                    {/* Add sparkle for first icon */}
+                    {item.sparkle && (
+                      <Sparkle className="w-3 h-3 text-[#2f5bff] absolute -top-1 -right-1" fill="#2f5bff" />
+                    )}
+                  </motion.div>
+
+                  {/* Label - counter-rotates to stay upright */}
+                  <motion.div
+                    className="absolute top-full mt-2 left-1/2 -translate-x-1/2 whitespace-nowrap"
+                    animate={{
+                      rotate: -360,
+                    }}
+                    transition={{
+                      rotate: { duration: 20, repeat: Infinity, ease: "linear" },
+                    }}
+                  >
+                    <p className="text-[10px] font-medium text-[#2f5bff] bg-card/80 backdrop-blur-sm px-2 py-1 rounded-full border border-[#2f5bff]/20">
+                      {item.label}
+                    </p>
+                  </motion.div>
+                </div>
               )
             })}
           </motion.div>

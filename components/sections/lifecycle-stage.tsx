@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion"
 import * as LucideIcons from "lucide-react"
+import { useState } from "react"
 
 interface LifecycleStageProps {
   iconName: keyof typeof LucideIcons
@@ -14,6 +15,11 @@ interface LifecycleStageProps {
 
 export function LifecycleStage({ iconName, title, subtitle, points, index, showIndex = true }: LifecycleStageProps) {
   const Icon = LucideIcons[iconName] as LucideIcons.LucideIcon
+  const [isActive, setIsActive] = useState(false)
+
+  const handleClick = () => {
+    setIsActive(!isActive)
+  }
 
   return (
     <motion.div
@@ -21,10 +27,11 @@ export function LifecycleStage({ iconName, title, subtitle, points, index, showI
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ delay: 0.8 + index * 0.15, duration: 0.6 }}
-      style={{ zIndex: 10 }}
+      style={{ zIndex: isActive ? 100 : 10 }}
       whileHover={{ zIndex: 100 }}
+      onClick={handleClick}
     >
-      <div className="relative">
+      <div className="relative cursor-pointer">
         {/* Stage Circle - Fully Blue with White Icon */}
         <motion.div 
           className="w-16 h-16 md:w-20 md:h-20 rounded-full bg-[#2f5bff] border-2 border-[#2f5bff] flex items-center justify-center shadow-md transition-all duration-200"
@@ -32,6 +39,10 @@ export function LifecycleStage({ iconName, title, subtitle, points, index, showI
             scale: 1.15,
             boxShadow: "0 10px 25px -5px rgba(47, 91, 255, 0.3), 0 8px 10px -6px rgba(47, 91, 255, 0.3)"
           }}
+          animate={isActive ? {
+            scale: 1.15,
+            boxShadow: "0 10px 25px -5px rgba(47, 91, 255, 0.3), 0 8px 10px -6px rgba(47, 91, 255, 0.3)"
+          } : {}}
         >
           <Icon
             className="w-6 h-6 md:w-8 md:h-8 text-white transition-transform duration-200 group-hover:scale-110"
@@ -50,8 +61,11 @@ export function LifecycleStage({ iconName, title, subtitle, points, index, showI
       <div className="mt-4 text-center">
         <h3 className="text-sm md:text-base font-medium text-foreground tracking-tight">{title}</h3>
         
-        {/* Hover Card - DESKTOP: Above (unchanged), MOBILE: Right side */}
-        <div className="absolute left-1/2 -translate-x-1/2 bottom-full mb-2 w-[280px] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 pointer-events-none z-50">
+        {/* Hover/Click Card - DESKTOP: Hover above, MOBILE/TABLET: Click to toggle */}
+        <div className={`absolute left-1/2 -translate-x-1/2 bottom-full mb-2 w-[280px] transition-all duration-300 z-50 
+          ${isActive ? 'opacity-100 visible' : 'opacity-0 invisible'} 
+          lg:group-hover:opacity-100 lg:group-hover:visible lg:pointer-events-none`}
+        >
           <div className="bg-card border border-border rounded-lg shadow-2xl p-4">
             {/* Subtitle */}
             <p className="text-xs font-semibold text-[#2f5bff] mb-3 uppercase tracking-wide">
@@ -69,9 +83,8 @@ export function LifecycleStage({ iconName, title, subtitle, points, index, showI
             </ul>
           </div>
           
-          {/* Arrow - DESKTOP: pointing down, MOBILE: pointing left */}
-          <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-0 h-0 border-l-8 border-r-8 border-t-8 border-l-transparent border-r-transparent border-t-border lg:block max-lg:hidden"></div>
-
+          {/* Arrow pointing down */}
+          <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-0 h-0 border-l-8 border-r-8 border-t-8 border-l-transparent border-r-transparent border-t-border"></div>
         </div>
       </div>
     </motion.div>

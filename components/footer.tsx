@@ -52,7 +52,7 @@ export function Footer() {
 
         <div className="border-t border-border pt-6 flex flex-col md:flex-row justify-between items-center gap-4">
           <div className="text-xs font-medium text-muted-foreground">
-            © {new Date().getFullYear()} ACENAVI. All rights reserved.
+            © {new Date().getFullYear()} ACENAVI™. All rights reserved.
           </div>
 
           <div className="flex gap-6">
