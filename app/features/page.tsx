@@ -19,8 +19,9 @@ export default function FeaturesPage() {
       <FeaturesHero />
       <FeaturesWorkflow />
       <FeaturesConnection />
+      {/*<FeaturesConnection />*/}
       <FeaturesGrid />
-      <FeaturesTestimonials />
+      {/*<FeaturesTestimonials />*/}
       <FeaturesCTA />
       <Footer />
     </main>
