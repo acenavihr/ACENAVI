@@ -6,16 +6,14 @@ import { Play } from "lucide-react"
 interface SecondaryButtonProps {
   text?: string
   href?: string
+  onClick?: (e: React.MouseEvent<HTMLButtonElement | HTMLAnchorElement>) => void
 }
 
-export function SecondaryButton({ text = "Watch Overview", href = "/demo-video" }: SecondaryButtonProps) {
-  return (
-    <motion.a
-      href={href}
-      className="group relative inline-flex items-center gap-3 px-8 py-4 rounded-full font-semibold overflow-hidden border-2 border-border bg-background"
-      whileHover="hover"
-      initial="initial"
-    >
+export function SecondaryButton({ text = "Watch Overview", href = "/demo-video", onClick }: SecondaryButtonProps) {
+  const commonClasses = "group relative inline-flex items-center gap-3 px-8 py-4 rounded-full font-semibold overflow-hidden border-2 border-border bg-background"
+  
+  const content = (
+    <>
       {/* Background that fills from top to bottom on hover */}
       <motion.div
         className="absolute inset-0 bg-foreground"
@@ -42,6 +40,32 @@ export function SecondaryButton({ text = "Watch Overview", href = "/demo-video" 
       <span className="text-base relative z-10 text-foreground group-hover:text-white transition-colors duration-200">
         {text}
       </span>
+    </>
+  )
+
+  // If onClick is provided, render as button
+  if (onClick) {
+    return (
+      <motion.button
+        onClick={onClick}
+        className={commonClasses}
+        whileHover="hover"
+        initial="initial"
+      >
+        {content}
+      </motion.button>
+    )
+  }
+
+  // Otherwise render as link
+  return (
+    <motion.a
+      href={href}
+      className={commonClasses}
+      whileHover="hover"
+      initial="initial"
+    >
+      {content}
     </motion.a>
   )
 }
