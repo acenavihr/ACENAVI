@@ -57,13 +57,20 @@ export function Footer() {
 
           <div className="flex gap-6">
             <div onMouseEnter={() => setHoveredItem("instagram")} onMouseLeave={() => setHoveredItem(null)}>
-              <a href="https://www.instagram.com/naviai.in/" target="_blank" rel="noopener noreferrer" className={`text-xs font-medium transition-colors ${hoveredItem === "instagram" ? "text-accent" : "text-muted-foreground"}`}>
+              <a href="https://www.instagram.com/naviai.in/" target="_blank" rel="noopener noreferrer" className={`text-xs font-medium transition-colors ${hoveredItem === "instagram" ? "insta-col" : "text-muted-foreground"}`}>
                 Instagram
               </a>
             </div>
+
             <div onMouseEnter={() => setHoveredItem("linkedin")} onMouseLeave={() => setHoveredItem(null)}>
-              <a href="https://www.linkedin.com/company/navihr/" target="_blank" rel="noopener noreferrer" className={`text-xs font-medium transition-colors ${hoveredItem === "linkedin" ? "text-accent" : "text-muted-foreground"}`}>
+              <a href="https://www.linkedin.com/company/navihr/" target="_blank" rel="noopener noreferrer" className={`text-xs font-medium transition-colors ${hoveredItem === "linkedin" ? "in-col" : "text-muted-foreground"}`}>
                 LinkedIn
+              </a>
+            </div>
+
+            <div onMouseEnter={() => setHoveredItem("youtube")} onMouseLeave={() => setHoveredItem(null)}>
+              <a href="https://www.youtube.com/@ACENAVINudges" target="_blank" rel="noopener noreferrer" className={`text-xs font-medium transition-colors ${hoveredItem === "youtube" ? "yt-col" : "text-muted-foreground"}`}>
+                YouTube
               </a>
             </div>
           </div>

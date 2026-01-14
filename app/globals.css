@@ -124,6 +124,15 @@
   .text-accent {
     color: var(--accent);
   }
+  .insta-col {
+    color: #C13584;
+  }
+  .in-col {
+    color: #0077B5;
+  }
+  .yt-col {
+    color: #CD201F;
+  }
   .text-accent-foreground {
     color: var(--accent-foreground);
   }
