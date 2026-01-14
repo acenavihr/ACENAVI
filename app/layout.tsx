@@ -31,7 +31,7 @@ export const metadata: Metadata = {
         url: '/acenavi_banner.png',
         width: 1200,
         height: 630,
-        alt: 'ACENAVI - AI-Powered HR Support Platform',
+        alt: 'ACENAVI - AI-Powered People Intelligence',
       },
     ],
     locale: 'en_US',
