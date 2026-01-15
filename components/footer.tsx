@@ -25,12 +25,12 @@ export function Footer() {
               </h3>
               <ul className="space-y-3">
                 <li onMouseEnter={() => setHoveredItem("privacy")} onMouseLeave={() => setHoveredItem(null)}>
-                  <a href="/privacy" className={`text-sm font-medium transition-colors ${hoveredItem === "privacy" ? "text-accent" : "text-muted-foreground"}`}>
+                  <a href="/privacy-policy-link" className={`text-sm font-medium transition-colors ${hoveredItem === "privacy" ? "text-accent" : "text-muted-foreground"}`}>
                     Privacy Policy
                   </a>
                 </li>
                 <li onMouseEnter={() => setHoveredItem("terms")} onMouseLeave={() => setHoveredItem(null)}>
-                  <a href="/terms" className={`text-sm font-medium transition-colors ${hoveredItem === "terms" ? "text-accent" : "text-muted-foreground"}`}>
+                  <a href="/terms-link" className={`text-sm font-medium transition-colors ${hoveredItem === "terms" ? "text-accent" : "text-muted-foreground"}`}>
                     Terms of Service
                   </a>
                 </li>
