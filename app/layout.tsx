@@ -10,7 +10,7 @@ const outfit = Outfit({
 })
 
 export const metadata: Metadata = {
-  title: "ACENAVI - AI-Powered HR Support",
+  title: "ACENAVI - AI-Powered People Intelligence",
   description: "Transform your HR operations with ACENAVI. Intelligent AI assistant that provides instant HR guidance, policy support, and employee experience directly in Slack and Microsoft Teams.",
   
   // Favicon
@@ -22,7 +22,7 @@ export const metadata: Metadata = {
   
   // Open Graph (WhatsApp, Facebook, LinkedIn)
   openGraph: {
-    title: 'ACENAVI - AI-Powered HR Support',
+    title: 'ACENAVI - AI-Powered People Intelligence',
     description: 'Transform your HR operations with ACENAVI. Intelligent AI assistant that provides instant HR guidance, policy support, and employee experience directly in Slack and Microsoft Teams.',
     url: 'https://acenavi.in',
     siteName: 'ACENAVI',
@@ -41,7 +41,7 @@ export const metadata: Metadata = {
   // Twitter Card
   twitter: {
     card: 'summary_large_image',
-    title: 'ACENAVI - AI-Powered HR Support',
+    title: 'ACENAVI - AI-Powered People Intelligence',
     description: 'Transform your HR operations with ACENAVI. Intelligent AI assistant that provides instant HR guidance, policy support, and employee experience directly in Slack and Microsoft Teams.',
     images: ['/acenavi_banner.png'],
   },
