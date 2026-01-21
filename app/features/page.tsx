@@ -1,5 +1,3 @@
-export const revalidate = 3600
-
 import { Navigation } from "@/components/navigation"
 import { Footer } from "@/components/footer"
 import { FeaturesHero } from "@/components/features/features-hero"

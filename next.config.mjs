@@ -4,8 +4,11 @@ const nextConfig = {
     ignoreBuildErrors: true,
   },
   
-  // CRITICAL: Enable compression
+  // Enable compression
   compress: true,
+  
+  // Enable SWC minification
+  swcMinify: true,
 
   // Optimize images
   images: {
@@ -30,30 +33,11 @@ const nextConfig = {
     ]
   },
 
-  // FIXED headers - allow compression
+  // Minimal headers - let middleware handle caching
   async headers() {
     return [
       {
-        // Static pages - allow caching for compression
-        source: '/',
-        headers: [
-          {
-            key: 'Cache-Control',
-            value: 'public, max-age=3600, s-maxage=3600, stale-while-revalidate=86400',
-          },
-        ],
-      },
-      {
-        source: '/:path((?!api|_next/static|_next/image|favicon.ico).*)',
-        headers: [
-          {
-            key: 'Cache-Control',
-            value: 'public, max-age=3600, s-maxage=3600, stale-while-revalidate=86400',
-          },
-        ],
-      },
-      {
-        // Next.js static files
+        // Cache Next.js static files
         source: '/_next/static/:path*',
         headers: [
           {
@@ -63,7 +47,7 @@ const nextConfig = {
         ],
       },
       {
-        // Images
+        // Cache images
         source: '/images/:path*',
         headers: [
           {
@@ -73,7 +57,7 @@ const nextConfig = {
         ],
       },
       {
-        // All static assets
+        // Cache all static assets
         source: '/:path*\\.(png|jpg|jpeg|gif|webp|svg|ico|woff|woff2|ttf|otf|mp4)',
         headers: [
           {
