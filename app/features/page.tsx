@@ -1,3 +1,5 @@
+export const dynamic = 'force-dynamic'
+
 import { Navigation } from "@/components/navigation"
 import { Footer } from "@/components/footer"
 import { FeaturesHero } from "@/components/features/features-hero"
