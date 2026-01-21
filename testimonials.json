@@ -47,6 +47,14 @@
         "company": "RetailChain",
         "content": "Managing 2000+ employees across multiple locations was overwhelming. ACENAVI gives everyone consistent, accurate information regardless of their location or timezone. It's been transformative.",
         "rating": 5
+      },
+      {
+        "id": 7,
+        "name": "Arjun Mehta",
+        "role": "Senior HR Manager",
+        "company": "RetailChain",
+        "content": "Managing 2000+ employees across multiple locations was overwhelming. ACENAVI gives everyone consistent, accurate information regardless of their location or timezone. It's been transformative.",
+        "rating": 5
       }
     ]
   }

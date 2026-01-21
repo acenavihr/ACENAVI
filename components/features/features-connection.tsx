@@ -93,9 +93,9 @@ export function FeaturesConnection() {
                   width={140}
                   height={60}
                   className="object-contain opacity-70"
-                  loading="eager"
-                  priority={idx < 6}
-                  quality={85}
+                  loading={idx < 6 ? "eager" : "lazy"}
+                  priority={idx < 3}
+                  quality={75}
                 />
               </div>
             ))}
@@ -122,9 +122,9 @@ export function FeaturesConnection() {
                   width={140}
                   height={60}
                   className="object-contain opacity-70"
-                  loading="eager"
-                  priority={idx < 6}
-                  quality={85}
+                  loading={idx < 6 ? "eager" : "lazy"}
+                  priority={idx < 3}
+                  quality={75}
                 />
               </div>
             ))}
