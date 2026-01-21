@@ -30,7 +30,7 @@ export function Footer() {
                   </a>
                 </li>
                 <li onMouseEnter={() => setHoveredItem("terms")} onMouseLeave={() => setHoveredItem(null)}>
-                  <a href="/terms-link" className={`text-sm font-medium transition-colors ${hoveredItem === "terms" ? "text-accent" : "text-muted-foreground"}`}>
+                  <a href="https://claude.ai/public/artifacts/ca2b714a-3b79-498e-83db-9288497a5fc4" className={`text-sm font-medium transition-colors ${hoveredItem === "terms" ? "text-accent" : "text-muted-foreground"}`}>
                     Terms of Service
                   </a>
                 </li>
