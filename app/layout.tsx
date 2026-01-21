@@ -6,7 +6,8 @@ import Script from "next/script"
 const outfit = Outfit({ 
   subsets: ["latin"],
   display: "swap",
-  variable: "--font-outfit"
+  variable: "--font-outfit",
+  preload: true,
 })
 
 export const metadata: Metadata = {
@@ -65,7 +66,43 @@ export default function RootLayout({
   return (
     <html lang="en" className={outfit.variable}>
       <head>
-        {/* Calendly CSS */}
+        {/* Critical CSS - Inline for fastest FCP */}
+        <style dangerouslySetInnerHTML={{
+          __html: `
+            :root{--background:#F9FAFE;--foreground:#070404;--accent:#1F44FF}
+            body{background-color:var(--background);color:var(--foreground);margin:0;font-family:var(--font-outfit),system-ui,-apple-system,sans-serif}
+            *{box-sizing:border-box}
+          `
+        }} />
+
+        {/* Google Analytics - Load early */}
+        <Script
+          src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GA_ID}`}
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', '${process.env.NEXT_PUBLIC_GA_ID}', {
+              page_path: window.location.pathname,
+            });
+          `}
+        </Script>
+
+        {/* Preconnect to external domains */}
+        <link rel="preconnect" href="https://www.googletagmanager.com" />
+        <link rel="preconnect" href="https://assets.calendly.com" />
+        <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+        <link rel="dns-prefetch" href="https://assets.calendly.com" />
+
+        {/* Calendly CSS - Preload for faster loading */}
+        <link 
+          rel="preload"
+          href="https://assets.calendly.com/assets/external/widget.css" 
+          as="style"
+        />
         <link 
           href="https://assets.calendly.com/assets/external/widget.css" 
           rel="stylesheet"
@@ -73,6 +110,7 @@ export default function RootLayout({
       </head>
       <body className="font-sans antialiased">
         {children}
+        
         {/* Calendly JS - Load after body */}
         <Script 
           src="https://assets.calendly.com/assets/external/widget.js" 

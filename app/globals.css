@@ -5,36 +5,34 @@
     /* Light mode - Clean, minimal palette with blue accent */
     --background: #F9FAFE;
     --foreground: #070404;
-    
     --card: #ffffff;
     --card-foreground: #0a0a0a;
-    
     --popover: #ffffff;
     --popover-foreground: #0a0a0a;
-
+    
     /* Primary: Deep black for main elements */
     --primary: #0a0a0a;
     --primary-foreground: #ffffff;
-
+    
     /* Secondary: Pure white */
     --secondary: #ffffff;
     --secondary-foreground: #0a0a0a;
-
+    
     /* Accent: Vibrant blue - your brand color */
     --accent: #1F44FF;
     --accent-foreground: #ffffff;
-
+    
     /* Muted: Soft grays */
     --muted: #f5f5f5;
     --muted-foreground: #737373;
-
+    
     --destructive: #dc2626;
     --destructive-foreground: #ffffff;
-
+    
     --border: #e5e5e5;
     --input: #f5f5f5;
     --ring: #1F44FF;
-
+    
     /* Chart colors - blue palette */
     --chart-1: #1F44FF;
     --chart-2: #4D6AFF;
@@ -55,6 +53,10 @@
     letter-spacing: 0.01em;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    /* Prevent layout shift */
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
   }
 
   h1, h2, h3, h4, h5, h6 {
@@ -62,6 +64,9 @@
     letter-spacing: -0.02em;
     font-weight: 700;
     line-height: 1.2;
+    /* Prevent font flickering */
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
   }
 
   h1 {
@@ -70,108 +75,75 @@
 
   html {
     scroll-behavior: smooth;
+    /* Improve rendering performance */
+    -webkit-tap-highlight-color: transparent;
   }
 
   *:focus-visible {
     outline: none;
   }
+
+  /* Improve image loading */
+  img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  /* Reduce repaints */
+  * {
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+  }
 }
 
 @layer utilities {
-  .bg-background {
-    background-color: var(--background);
-  }
-  .bg-foreground {
-    background-color: var(--foreground);
-  }
-  .bg-card {
-    background-color: var(--card);
-  }
-  .bg-primary {
-    background-color: var(--primary);
-  }
-  .bg-secondary {
-    background-color: var(--secondary);
-  }
-  .bg-accent {
-    background-color: var(--accent);
-  }
-  .bg-muted {
-    background-color: var(--muted);
-  }
-  .bg-destructive {
-    background-color: var(--destructive);
-  }
+  /* Background utilities */
+  .bg-background { background-color: var(--background); }
+  .bg-foreground { background-color: var(--foreground); }
+  .bg-card { background-color: var(--card); }
+  .bg-primary { background-color: var(--primary); }
+  .bg-secondary { background-color: var(--secondary); }
+  .bg-accent { background-color: var(--accent); }
+  .bg-muted { background-color: var(--muted); }
+  .bg-destructive { background-color: var(--destructive); }
   
-  .text-foreground {
-    color: var(--foreground);
-  }
-  .text-background {
-    color: var(--background);
-  }
-  .text-card-foreground {
-    color: var(--card-foreground);
-  }
-  .text-primary {
-    color: var(--primary);
-  }
-  .text-primary-foreground {
-    color: var(--primary-foreground);
-  }
-  .text-secondary-foreground {
-    color: var(--secondary-foreground);
-  }
-  .text-accent {
-    color: var(--accent);
-  }
-  .insta-col {
-    color: #C13584;
-  }
-  .in-col {
-    color: #0077B5;
-  }
-  .yt-col {
-    color: #CD201F;
-  }
-  .text-accent-foreground {
-    color: var(--accent-foreground);
-  }
-  .text-muted-foreground {
-    color: var(--muted-foreground);
-  }
-  .text-destructive {
-    color: var(--destructive);
-  }
-  .text-destructive-foreground {
-    color: var(--destructive-foreground);
-  }
-
-  .border-border {
-    border-color: var(--border);
-  }
-  .border-input {
-    border-color: var(--input);
-  }
-  .border-accent {
-    border-color: var(--accent);
-  }
-
-  .ring-accent {
-    --tw-ring-color: var(--accent);
-  }
-  .ring-ring {
-    --tw-ring-color: var(--ring);
-  }
-
-  .text-balance {
-    text-wrap: balance;
-  }
-
+  /* Text color utilities */
+  .text-foreground { color: var(--foreground); }
+  .text-background { color: var(--background); }
+  .text-card-foreground { color: var(--card-foreground); }
+  .text-primary { color: var(--primary); }
+  .text-primary-foreground { color: var(--primary-foreground); }
+  .text-secondary-foreground { color: var(--secondary-foreground); }
+  .text-accent { color: var(--accent); }
+  .text-accent-foreground { color: var(--accent-foreground); }
+  .text-muted-foreground { color: var(--muted-foreground); }
+  .text-destructive { color: var(--destructive); }
+  .text-destructive-foreground { color: var(--destructive-foreground); }
+  
+  /* Social media colors */
+  .insta-col { color: #C13584; }
+  .in-col { color: #0077B5; }
+  .yt-col { color: #CD201F; }
+  
+  /* Border utilities */
+  .border-border { border-color: var(--border); }
+  .border-input { border-color: var(--input); }
+  .border-accent { border-color: var(--accent); }
+  
+  /* Ring utilities */
+  .ring-accent { --tw-ring-color: var(--accent); }
+  .ring-ring { --tw-ring-color: var(--ring); }
+  
+  /* Text balance */
+  .text-balance { text-wrap: balance; }
+  
   /* Consistent section spacing */
   .section-padding {
     @apply py-20 md:py-28;
   }
 
+  /* Hide scrollbars */
   * {
     scrollbar-width: none; /* Firefox */
     -ms-overflow-style: none; /* IE and Edge */
@@ -181,7 +153,6 @@
     display: none; /* Chrome, Safari, Opera */
   }
   
-  /* If you want to hide only on body */
   body {
     scrollbar-width: none;
     -ms-overflow-style: none;
@@ -189,5 +160,35 @@
   
   body::-webkit-scrollbar {
     display: none;
+  }
+
+  /* Performance optimizations */
+  .will-change-transform {
+    will-change: transform;
+  }
+
+  .gpu-accelerated {
+    transform: translateZ(0);
+    backface-visibility: hidden;
+  }
+}
+
+/* Critical CSS for above-the-fold content */
+@layer components {
+  /* Preload critical elements */
+  .hero-section {
+    min-height: 100vh;
+    contain: layout style paint;
+  }
+
+  /* Optimize animations */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
   }
 }
