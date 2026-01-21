@@ -19,23 +19,33 @@ export function Footer() {
           </div>
 
           <div className="flex gap-16">
-            <div>
-              <h3 className="text-xs font-semibold uppercase tracking-wide mb-4 text-muted-foreground">
-                Legal
-              </h3>
-              <ul className="space-y-3">
-                <li onMouseEnter={() => setHoveredItem("privacy")} onMouseLeave={() => setHoveredItem(null)}>
-                  <a href="/privacy-policy-link" className={`text-sm font-medium transition-colors ${hoveredItem === "privacy" ? "text-accent" : "text-muted-foreground"}`}>
-                    Privacy Policy
-                  </a>
-                </li>
-                <li onMouseEnter={() => setHoveredItem("terms")} onMouseLeave={() => setHoveredItem(null)}>
-                  <a href="https://claude.ai/public/artifacts/ca2b714a-3b79-498e-83db-9288497a5fc4" className={`text-sm font-medium transition-colors ${hoveredItem === "terms" ? "text-accent" : "text-muted-foreground"}`}>
-                    Terms of Service
-                  </a>
-                </li>
-              </ul>
-            </div>
+          <div>
+  <h3 className="text-xs font-semibold uppercase tracking-wide mb-4 text-muted-foreground">
+    Legal
+  </h3>
+  <ul className="space-y-3">
+    <li onMouseEnter={() => setHoveredItem("privacy")} onMouseLeave={() => setHoveredItem(null)}>
+      <a 
+        href="/privacy-policy-link" 
+        target="_blank"
+        rel="noopener noreferrer"
+        className={`text-sm font-medium transition-colors ${hoveredItem === "privacy" ? "text-accent" : "text-muted-foreground"}`}
+      >
+        Privacy Policy
+      </a>
+    </li>
+    <li onMouseEnter={() => setHoveredItem("terms")} onMouseLeave={() => setHoveredItem(null)}>
+      <a 
+        href="https://claude.ai/public/artifacts/ca2b714a-3b79-498e-83db-9288497a5fc4" 
+        target="_blank"
+        rel="noopener noreferrer"
+        className={`text-sm font-medium transition-colors ${hoveredItem === "terms" ? "text-accent" : "text-muted-foreground"}`}
+      >
+        Terms of Service
+      </a>
+    </li>
+  </ul>
+</div>
 
             <div>
               <h3 className="text-xs font-semibold uppercase tracking-wide mb-4 text-muted-foreground">
