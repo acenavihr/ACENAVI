@@ -4,19 +4,13 @@ const nextConfig = {
     ignoreBuildErrors: true,
   },
   
-  // Enable compression
+  // CRITICAL: Enable compression
   compress: true,
-
-  // Production optimizations
-  poweredByHeader: false,
-  generateEtags: true,
 
   // Optimize images
   images: {
     formats: ['image/avif', 'image/webp'],
     minimumCacheTTL: 31536000,
-    deviceSizes: [640, 750, 828, 1080, 1200, 1920],
-    imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
   },
 
   // WWW redirect
@@ -36,99 +30,56 @@ const nextConfig = {
     ]
   },
 
-  // Custom headers for caching and compression
+  // FIXED headers - allow compression
   async headers() {
     return [
       {
-        source: '/:path*',
-        headers: [
-          {
-            key: 'X-DNS-Prefetch-Control',
-            value: 'on'
-          },
-          {
-            key: 'X-Content-Type-Options',
-            value: 'nosniff'
-          },
-          {
-            key: 'X-Frame-Options',
-            value: 'SAMEORIGIN'
-          },
-          {
-            key: 'Referrer-Policy',
-            value: 'origin-when-cross-origin'
-          },
-          {
-            key: 'Permissions-Policy',
-            value: 'camera=(), microphone=(), geolocation=()'
-          },
-        ],
-      },
-      // Cache static assets
-      {
-        source: '/images/:path*',
+        // Static pages - allow caching for compression
+        source: '/',
         headers: [
           {
             key: 'Cache-Control',
-            value: 'public, max-age=31536000, s-maxage=31536000, immutable',
+            value: 'public, max-age=3600, s-maxage=3600, stale-while-revalidate=86400',
           },
-          {
-            key: 'Expires',
-            value: 'Wed, 31 Dec 2025 23:59:59 GMT'
-          }
         ],
       },
       {
-        source: '/:all*.(png|jpg|jpeg|gif|webp|svg|ico)',
+        source: '/:path((?!api|_next/static|_next/image|favicon.ico).*)',
         headers: [
           {
             key: 'Cache-Control',
-            value: 'public, max-age=31536000, s-maxage=31536000, immutable',
+            value: 'public, max-age=3600, s-maxage=3600, stale-while-revalidate=86400',
           },
-          {
-            key: 'Expires',
-            value: 'Wed, 31 Dec 2025 23:59:59 GMT'
-          }
         ],
       },
       {
-        source: '/:all*.(woff|woff2|ttf|otf|eot)',
-        headers: [
-          {
-            key: 'Cache-Control',
-            value: 'public, max-age=31536000, s-maxage=31536000, immutable',
-          },
-          {
-            key: 'Expires',
-            value: 'Wed, 31 Dec 2025 23:59:59 GMT'
-          }
-        ],
-      },
-      {
-        source: '/:all*.(mp4|webm)',
-        headers: [
-          {
-            key: 'Cache-Control',
-            value: 'public, max-age=31536000, s-maxage=31536000, immutable',
-          },
-          {
-            key: 'Expires',
-            value: 'Wed, 31 Dec 2025 23:59:59 GMT'
-          }
-        ],
-      },
-      // Cache Next.js static files
-      {
+        // Next.js static files
         source: '/_next/static/:path*',
         headers: [
           {
             key: 'Cache-Control',
-            value: 'public, max-age=31536000, s-maxage=31536000, immutable',
+            value: 'public, max-age=31536000, immutable',
           },
+        ],
+      },
+      {
+        // Images
+        source: '/images/:path*',
+        headers: [
           {
-            key: 'Expires',
-            value: 'Wed, 31 Dec 2025 23:59:59 GMT'
-          }
+            key: 'Cache-Control',
+            value: 'public, max-age=31536000, immutable',
+          },
+        ],
+      },
+      {
+        // All static assets
+        source: '/:path*\\.(png|jpg|jpeg|gif|webp|svg|ico|woff|woff2|ttf|otf|mp4)',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=31536000, immutable',
+          },
         ],
       },
     ]
