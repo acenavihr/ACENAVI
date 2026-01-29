@@ -26,7 +26,7 @@ export function Footer() {
   <ul className="space-y-3">
     <li onMouseEnter={() => setHoveredItem("privacy")} onMouseLeave={() => setHoveredItem(null)}>
       <a 
-        href="/privacy-policy-link" 
+        href="https://claude.ai/public/artifacts/4aa9d86e-7cc6-4664-953b-fd18b7f1a92e" 
         target="_blank"
         rel="noopener noreferrer"
         className={`text-sm font-medium transition-colors ${hoveredItem === "privacy" ? "text-accent" : "text-muted-foreground"}`}
